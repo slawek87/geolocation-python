@@ -3,29 +3,27 @@ import json
 import re
 import urllib2
 
-from config import GOOGLE_MAPS_API_KEY
-
 
 class GeocodeApi(object):
     STATUS_OK = 'OK'
 
-    _api_key = "&key=%s" % GOOGLE_MAPS_API_KEY
     _json_api_address = 'https://maps.googleapis.com/maps/api/geocode/json?address='
 
     _location = None
 
+    def __init__(self, api_key):
+        self._api_key = "&key=%s" % api_key
+
     def __repr__(self):
         return '<Geocode: %s>' % self._location
 
-    @classmethod
-    def query(cls, location):
+    def query(self, location):
         """Main method should returns json results."""
-        instance = cls()
-        instance.set_location(location)
+        self.set_location(location)
 
-        request = instance._prepare_request(location)
+        request = self._prepare_request(location)
 
-        return instance._get_json_data(request)
+        return self._get_json_data(request)
 
     def set_location(self, location):
         """Method sets location variable."""
@@ -33,9 +31,6 @@ class GeocodeApi(object):
 
     def _prepare_request(self, query_):
         """Method prepares query to request for google api."""
-        if not GOOGLE_MAPS_API_KEY:
-            raise Exception('GOOGLE_MAPS_API_KEY is empty.')
-
         prepare = re.sub('\s+', ' ', query_).strip()
         prepare = ',+'.join(prepare.split())
 

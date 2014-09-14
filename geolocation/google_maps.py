@@ -6,12 +6,14 @@ from api import GeocodeApi
 
 class GoogleMaps(object):
     """To find address use: GoogleMaps.query(location=full_address)."""
-    _geocode_api = GeocodeApi()
     _geocode_parser = GeocodeParser()
 
     _location = None
 
     _data = set()
+
+    def __init__(self, api_key):
+        self._geocode_api = GeocodeApi(api_key)
 
     def __repr__(self):
         return '<GoogleMaps: %s>' % self._location
@@ -48,16 +50,13 @@ class GoogleMaps(object):
 
         return None
 
-    @classmethod
-    def query(cls, location):
+    def query(self, location):
         """Main method should returns GoogleMaps instance."""
-        instance = cls()
+        self.set_location(location)
 
-        instance.set_location(location)
-
-        json_results = instance._geocode_api.query(location)
+        json_results = self._geocode_api.query(location)
 
         if json_results:
-            instance._to_python(json_results)
+            self._to_python(json_results)
 
-        return instance
+        return self
