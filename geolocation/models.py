@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 class LocationModel(object):
     _city = None
     _route = None

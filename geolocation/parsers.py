@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 class GeocodeParser(object):
     _json_data = None
 
@@ -22,7 +25,7 @@ class GeocodeParser(object):
             types = address_component['types']
 
             if type_ in types:
-                return address_component['long_name']
+                return address_component['long_name'].encode('utf-8')
 
         return None
 

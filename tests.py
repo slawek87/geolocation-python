@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 from geolocation.google_maps import GoogleMaps
 
 if __name__ == "__main__":
-    address = "Rybnik Adama Mickiewicza 18"
+    address = "Rybnikca 12"
 
     test = google_maps = GoogleMaps.query(address)
     print test.all()
@@ -14,4 +15,3 @@ if __name__ == "__main__":
     print test.country
     print test.lat
     print test.lng
-    #print test.map_static

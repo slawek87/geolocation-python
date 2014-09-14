@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from models import LocationModel
 from parsers import GeocodeParser
 from api import GeocodeApi
@@ -56,6 +57,7 @@ class GoogleMaps(object):
 
         json_results = instance._geocode_api.query(location)
 
-        instance._to_python(json_results)
+        if json_results:
+            instance._to_python(json_results)
 
         return instance

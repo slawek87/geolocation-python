@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 import re
 import urllib2
@@ -31,12 +32,11 @@ class GeocodeApi(object):
         self._location = location
 
     def _prepare_request(self, query_):
-        """Method prepares query for google api request."""
+        """Method prepares query to request for google api."""
         if not GOOGLE_MAPS_API_KEY:
             raise Exception('GOOGLE_MAPS_API_KEY is empty.')
 
-        prepare = query_.encode('ascii', 'ignore').decode('ascii')
-        prepare = re.sub('\s+', ' ', prepare).strip()
+        prepare = re.sub('\s+', ' ', query_).strip()
         prepare = ',+'.join(prepare.split())
 
         prepare = "%s%s%s" % (self._json_api_address, prepare, self._api_key)
