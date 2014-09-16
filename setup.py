@@ -8,15 +8,16 @@ with open('LICENSE', 'r') as f:
     license_ = f.read()
 
 setup(
-    name='Geolocation',
+    name='geolocation-python',
     version='0.1.0',
     packages=['geolocation'],
     url='',
     license=license_,
     author=u'Sławomir Kabik',
     author_email='slawek@redsoftware.pl',
-    description='Geolocation is a simple and clever application which uses google maps api.'
-                'This application allows you to easily and quickly get information about given localisation.'
+    description='Geolocation is a simple and clever application which uses google maps api. '
+                'This application allows you to easily and quickly get information about given localisation. '
                 'Application returns such information as: country, city, route/street, street number, lat and lng.',
     long_description=readme,
+    keywords=['Google Maps Api', 'Google lat', 'Google lng', 'Google Maps']
 )

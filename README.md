@@ -18,6 +18,11 @@ To use this application you need to have Google API key.
     [Google Maps Documentation](https://developers.google.com/maps/documentation/geocoding/) -- Geocoding
 
 
+How to install it?
+-------------------
+    pip install geolocation-python
+
+
 How to use it?
 -----------------------
     address = "New York City Wall Street 12"
