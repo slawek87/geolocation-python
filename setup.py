@@ -17,6 +17,6 @@ setup(
     author_email='slawek@redsoftware.pl',
     description='Geolocation is a simple and clever application which uses google maps api.'
                 'This application allows you to easily and quickly get information about given localisation.'
-                'Application returns such information as: country, city, country, route/street, lnt ang lng.',
+                'Application returns such information as: country, city, route/street, street number, lat and lng.',
     long_description=readme,
 )

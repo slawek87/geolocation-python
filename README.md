@@ -6,9 +6,9 @@ Application returns such information as:
 
 * country, 
 * city, 
-* country, 
 * route/street, 
-* lnt, 
+* street number,
+* lat, 
 * lng.
 
 
@@ -18,7 +18,7 @@ To use this application you need to have Google API key.
     [Google Maps Documentation](https://developers.google.com/maps/documentation/geocoding/) -- Geocoding
 
 
-How to use Geolocation?
+How to use it?
 -----------------------
     address = "New York City Wall Street 12"
 
