@@ -1,7 +1,7 @@
 What is Geolocation?
 =====================
 Geolocation is a simple and clever application which uses google maps api.
-This application allows you to easily and quickly get information about given localisation.
+This application allows you to easily and quickly get information about given localization.
 Application returns such information as: 
 
 * country, 
