@@ -4,7 +4,7 @@ from geolocation.google_maps import GoogleMaps
 if __name__ == "__main__":
     address = "Wall Street 12"
 
-    google_maps = GoogleMaps(api_key='your_google_maps_key')
+    google_maps = GoogleMaps(api_key='your_google_maps_api_key')
 
     location_info = google_maps.query(location=address)
 

@@ -2,13 +2,14 @@
 
 
 class LocationModel(object):
-    city = None
-    route = None
-    street_number = None
-    country = None
-    lat = None
-    lng = None
-    formatted_address = None
+    def __init__(self, city=None, route=None, street_number=None, country=None, lat=None, lng=None, formatted_address=None):
+        self.city = city
+        self.route = route
+        self.street_number = street_number
+        self.country = country
+        self.lat = lat
+        self.lng = lng
+        self.formatted_address = formatted_address
 
     def __repr__(self):
         return '<LocationModel: %s>' % self.city

@@ -2,10 +2,12 @@
 import unittest
 from geolocation.google_maps import GoogleMaps
 
+TEST_API_KEY = 'AIzaSyBm0PtaxCuo7iy1KVAnKrl7h8dtA61DXz8'
+
 
 class GeolocationTest(unittest.TestCase):
     def setUp(self):
-        self.google_maps = GoogleMaps(api_key='your_google_maps_key')
+        self.google_maps = GoogleMaps(api_key=TEST_API_KEY)
 
     def test_query(self):
         address = "New York City Wall Steet 12"
