@@ -46,4 +46,4 @@ How to use it?
     print location_info.lat
     print location_info.lng
     
-More examples you should find in `examples` dir.
+More examples you should find in https://github.com/slawek87/geolocation-python/tree/master/examples
