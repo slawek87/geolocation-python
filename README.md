@@ -25,6 +25,10 @@ How to install it?
 
 How to use it?
 -----------------------
+    # -*- coding: utf-8 -*-
+    
+    from geolocation.google_maps import GoogleMaps
+    
     address = "New York City Wall Street 12"
 
     google_maps = GoogleMaps(api_key='your_google_maps_key')
