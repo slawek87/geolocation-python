@@ -17,7 +17,7 @@ What do You need?
 To use this application you need to have Google API key.
     [Google Maps Documentation](https://developers.google.com/maps/documentation/geocoding/) -- Geocoding
 
-1.Open [APIs console](https://code.google.com/apis/console).
+1. Open [APIs console](https://code.google.com/apis/console).
 
   ![Alt text](https://github.com/slawek87/geolocation-python/blob/master/docs/images/geocode-1.png?raw=true "APIs console")
 
