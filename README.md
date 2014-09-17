@@ -17,6 +17,18 @@ What do You need?
 To use this application you need to have Google API key.
     [Google Maps Documentation](https://developers.google.com/maps/documentation/geocoding/) -- Geocoding
 
+1. Open [APIs console](https://code.google.com/apis/console).
+
+![Alt text](https://github.com/slawek87/geolocation-python/blob/master/docs/images/geocode-1.png?raw=true "APIs console")
+
+2. Turn On Geocode API.
+
+![Alt text](https://github.com/slawek87/geolocation-python/blob/maskter/docs/images/geocode-2.png?raw=true "Geocode Api")
+
+3. Get your API Key.
+
+![Alt text](https://github.com/slawek87/geolocation-python/blob/master/docs/images/geocode-3.png?raw=true "API KEY")
+
 
 How to install it?
 -------------------
@@ -25,25 +37,27 @@ How to install it?
 
 How to use it?
 -----------------------
-    # -*- coding: utf-8 -*-
-    
-    from geolocation.google_maps import GoogleMaps
-    
-    address = "New York City Wall Street 12"
+```python
+# -*- coding: utf-8 -*-
 
-    google_maps = GoogleMaps(api_key='your_google_maps_key')
+from geolocation.google_maps import GoogleMaps
 
-    location_info = google_maps.query(location=address)
+address = "New York City Wall Street 12"
 
-    print location_info.all()
+google_maps = GoogleMaps(api_key='your_google_maps_key')
 
-    location_info = location_info.first()
+location_info = google_maps.query(location=address)
 
-    print location_info.city
-    print location_info.route
-    print location_info.street_number
-    print location_info.country
-    print location_info.lat
-    print location_info.lng
+print location_info.all()
+
+location_info = location_info.first()
+
+print location_info.city
+print location_info.route
+print location_info.street_number
+print location_info.country
+print location_info.lat
+print location_info.lng
+```
     
 More examples you should find in https://github.com/slawek87/geolocation-python/tree/master/examples
