@@ -50,7 +50,7 @@ location_info = google_maps.query(location=address)
 
 print location_info.all() # return list of all location.
 
-location_info = location_info.first() #return only first location.
+location_info = location_info.first() # return only first location.
 
 print location_info.city
 print location_info.route
