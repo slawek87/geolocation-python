@@ -1,4 +1,6 @@
 language: python
 python:
   - "2.7"
-script: python tests/tests.py
+install:
+  - "pip install ."
+script: nosetests
