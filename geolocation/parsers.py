@@ -16,7 +16,7 @@ class GeocodeParser(object):
         """Method sets value to json_data"""
         self.json_data = value
 
-    def _search_address_components(self, type_):
+    def _search_address_components(self, type_, shortcut=False):
         """Method searches address components in google maps json data."""
         if not self.json_data:
             return None
@@ -25,7 +25,10 @@ class GeocodeParser(object):
             types = address_component['types']
 
             if type_ in types:
-                return address_component['long_name'].encode('utf-8')
+                if shortcut:
+                    return address_component['short_name'].encode('utf-8')
+                else:
+                    return address_component['long_name'].encode('utf-8')
 
         return None
 
@@ -60,6 +63,10 @@ class GeocodeParser(object):
     def get_country(self):
         """Method should returns country long name from current location."""
         return self._search_address_components('country')
+
+    def get_country_shortcut(self):
+        """Method should returns country short name from current location."""
+        return self._search_address_components('country', True)
 
     def get_lat(self):
         """Method should returns lat property of current location."""

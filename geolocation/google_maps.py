@@ -28,6 +28,7 @@ class GoogleMaps(object):
             location.route = self._geocode_parser.get_route()
             location.street_number = self._geocode_parser.get_street_number()
             location.country = self._geocode_parser.get_country()
+            location.country_shortcut = self._geocode_parser.get_country_shortcut()
             location.lat = self._geocode_parser.get_lat()
             location.lng = self._geocode_parser.get_lng()
             location.formatted_address = self._geocode_parser.get_formatted_address()

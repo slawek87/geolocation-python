@@ -6,15 +6,16 @@ if __name__ == "__main__":
 
     google_maps = GoogleMaps(api_key='your_google_maps_key')
 
-    location_info = google_maps.query(location=address)
+    location = google_maps.query(location=address)
 
-    print location_info.all()
+    print location.all()
 
-    location_info = location_info.first()
+    my_location = location.first()
 
-    print location_info.city
-    print location_info.route
-    print location_info.street_number
-    print location_info.country
-    print location_info.lat
-    print location_info.lng
+    print my_location.city
+    print my_location.route
+    print my_location.street_number
+    print my_location.country
+    print my_location.country_shortcut
+    print my_location.lat
+    print my_location.lng
