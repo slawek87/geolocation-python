@@ -1,3 +1,5 @@
+![Alt text](https://travis-ci.org/slawek87/geolocation-python.svg?branch=master)
+
 What is Geolocation?
 =====================
 Geolocation is a simple and clever application which uses google maps api.
