@@ -46,7 +46,9 @@ from geolocation.google_maps import GoogleMaps
 
 address = "New York City Wall Street 12"
 
-google_maps = GoogleMaps(api_key='your_google_maps_key')
+google_maps = GoogleMaps(api_key='your_google_maps_key') # You have to have your own Google Maps API Key.
+
+location = google_maps.query(location=address) # sends query to Google Maps.
 
 print location.all() # returns all locations.
 
