@@ -73,4 +73,4 @@ print my_location.lat
 print my_location.lng
 ```
     
-More examples you should find in https://github.com/slawek87/geolocation-python/tree/master/examples
+More examples you should find [here](https://github.com/slawek87/geolocation-python/tree/master/examples).
