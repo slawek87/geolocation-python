@@ -70,3 +70,30 @@ class GeolocationTest(unittest.TestCase):
 
         self.assertEqual(-74.0088189, my_location.lng)
 
+    def test_formatted_address(self):
+        address = "New York City Wall Street 12"
+
+        location = self.google_maps.query(address)
+
+        my_location = location.first()
+
+        self.assertEqual('Wall Street, New York, NY, USA', my_location.formatted_address)
+
+    def test_administrative_area_level_1(self):
+        address = "New York City Wall Street 12"
+
+        location = self.google_maps.query(address)
+
+        my_location = location.first()
+
+        self.assertEqual('New York', my_location.administrative_area[0].name)
+
+    def test_administrative_area_level_2(self):
+        address = "New York City Wall Street 12"
+
+        location = self.google_maps.query(address)
+
+        my_location = location.first()
+
+        self.assertEqual('New York County', my_location.administrative_area[1].name)
+

@@ -23,5 +23,7 @@ if __name__ == "__main__":
     print my_location.country
     print my_location.country_shortcut
 
+    print my_location.formatted_address
+
     print my_location.lat
     print my_location.lng
