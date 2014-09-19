@@ -24,13 +24,20 @@ class GoogleMaps(object):
             self._geocode_parser.json_data = item
 
             location = LocationModel()
+
             location.city = self._geocode_parser.get_city()
             location.route = self._geocode_parser.get_route()
             location.street_number = self._geocode_parser.get_street_number()
+            location.postal_code = self._geocode_parser.get_postal_code()
+
             location.country = self._geocode_parser.get_country()
             location.country_shortcut = self._geocode_parser.get_country_shortcut()
+
+            location.administrative_area = self._geocode_parser.get_administrative_area()
+
             location.lat = self._geocode_parser.get_lat()
             location.lng = self._geocode_parser.get_lng()
+
             location.formatted_address = self._geocode_parser.get_formatted_address()
 
             self._data.add(location)

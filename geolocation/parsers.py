@@ -56,6 +56,10 @@ class GeocodeParser(object):
         """Method should returns route long name of current location."""
         return self._search_address_components('route')
 
+    def get_postal_code(self):
+        """Method should returns postal code of current location."""
+        return self._search_address_components('postal_code')
+
     def get_city(self):
         """Method should returns city long name of current location."""
         return self._search_address_components('locality')
@@ -75,3 +79,19 @@ class GeocodeParser(object):
     def get_lng(self):
         """Method should returns lng property of current location."""
         return self._search_geometry_location('lng')
+
+    def get_administrative_area(self):
+        """Method should returns all administrative areas of current location."""
+        data = list()
+
+        administrative_areas = [
+            'administrative_area_level_1', 'administrative_area_level_2', 'administrative_area_level_3'
+        ]
+
+        for area_type in administrative_areas:
+            name = self._search_address_components(area_type)
+
+            if name:
+                data.append(dict(name=name, area_type=area_type))
+
+        return data
