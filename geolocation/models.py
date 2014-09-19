@@ -25,14 +25,14 @@ class LocationModel(object):
     @administrative_area.setter
     def administrative_area(self, value_list):
         for value in value_list:
-            area = AdministrativeLevelModel(value['area_type'], value['name'])
+            area = AdministrativeAreaLevelModel(value['area_type'], value['name'])
             self._administrative_area.append(area)
 
 
-class AdministrativeLevelModel(object):
+class AdministrativeAreaLevelModel(object):
     def __init__(self, area_type, name):
         self.area_type = area_type
         self.name = name
 
     def __repr__(self):
-        return '<AdministrativeLevelModel: %s>' % self.name
+        return '<AdministrativeAreaLevelModel: %s>' % self.name
