@@ -10,7 +10,6 @@ STATUS_REQUEST_DENIED = 'REQUEST_DENIED'
 STATUS_INVALID_REQUEST = 'INVALID_REQUEST'
 STATUS_UNKNOWN_ERROR = 'UNKNOWN_ERROR'
 
-
 STATUS_CODES = (
     (STATUS_OK, 'Successfully parsed.'),
     (STATUS_ZERO_RESULTS, 'Successful parsed but returned no results.'),
