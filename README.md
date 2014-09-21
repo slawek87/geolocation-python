@@ -9,9 +9,13 @@ This application allows you to easily and quickly get information about given lo
 Application returns such information as: 
 
 * country, 
+* country short form,
 * city, 
 * route/street, 
 * street number,
+* postal code,
+* formatted address,
+* administrative areas,
 * lat, 
 * lng.
 
