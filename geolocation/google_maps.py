@@ -45,7 +45,7 @@ class GoogleMaps(object):
         return self.all()
 
     def set_location(self, location):
-        """Method sets location variable."""
+        """Method sets location value."""
         self._location = location
 
     def all(self):
