@@ -1,4 +1,4 @@
 Contributors List
 ====
-* Slawek87 ([@Slawek87](http://github.com/slawek87))
-* Alexandre ([@Alexandre](http://github.com/alexandre))
+* Sławomir Kabik ([@slawek87](http://github.com/slawek87))
+* Alexandre Souza ([@alexandre](http://github.com/alexandre))
