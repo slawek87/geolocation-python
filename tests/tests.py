@@ -10,7 +10,7 @@ class GeolocationTest(unittest.TestCase):
         self.google_maps = GoogleMaps(api_key=TEST_API_KEY)
 
     def test_query(self):
-        address = "São Paulo"
+        address = "New York City Wall Street 12"
 
         location = self.google_maps.query(address)
 
