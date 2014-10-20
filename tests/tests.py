@@ -97,3 +97,9 @@ class GeolocationTest(unittest.TestCase):
 
         self.assertEqual('New York County', my_location.administrative_area[1].name)
 
+    def test_coding(self):
+        address = "São Paulo"
+
+        my_location = self.google_maps.query(address).first()
+
+        self.assertEqual("São Paulo", my_location.city)

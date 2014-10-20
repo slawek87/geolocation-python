@@ -14,9 +14,14 @@ class GoogleMaps(object):
 
     def __init__(self, api_key):
         self._geocode_api = GeocodeApi(api_key)
+        self._reset_data()
 
     def __repr__(self):
         return '<GoogleMaps: %s>' % self._location
+
+    def _reset_data(self):
+        self._data = set()
+        self._location = None
 
     def _to_python(self, json_results):
         """Method should converts json_results to python object."""
