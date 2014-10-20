@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from models import LocationModel
-from parsers import GeocodeParser
-from api import GeocodeApi
+from geolocation.models import LocationModel
+from geolocation.parsers import GeocodeParser
+from geolocation.api import GeocodeApi
 
 
 class GoogleMaps(object):
