@@ -110,4 +110,4 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = self.google_maps.query(address).first()
 
-        self.assertEqual("São Paulo", my_location.city.decode('utf-8'))
+        self.assertEqual(u"São Paulo", my_location.city.decode('utf-8'))
