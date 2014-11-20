@@ -23,7 +23,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual('New York', my_location.city)
+        self.assertEqual('New York', my_location.city.decode('utf-8'))
 
     def test_route(self):
         address = "New York City Wall Street 12"
@@ -32,7 +32,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual('Wall Street', my_location.route)
+        self.assertEqual('Wall Street', my_location.route.decode('utf-8'))
 
     def test_country(self):
         address = "New York City Wall Street 12"
@@ -41,7 +41,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual('United States', my_location.country)
+        self.assertEqual('United States', my_location.country.decode('utf-8'))
 
     def test_country_shortcut(self):
         address = "New York City Wall Street 12"
@@ -50,7 +50,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual('US', my_location.country_shortcut)
+        self.assertEqual('US', my_location.country_shortcut.decode('utf-8'))
 
     def test_lat(self):
         address = "New York City Wall Street 12"
@@ -77,7 +77,8 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual('Wall Street, New York, NY, USA', my_location.formatted_address)
+        self.assertEqual('Wall Street, New York, NY, USA',
+                         my_location.formatted_address)
 
     def test_administrative_area_level_1(self):
         address = "New York City Wall Street 12"
@@ -86,7 +87,9 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual('New York', my_location.administrative_area[0].name)
+        self.assertEqual(
+            'New York',
+            my_location.administrative_area[0].name.decode('utf-8'))
 
     def test_administrative_area_level_2(self):
         address = "New York City Wall Street 12"
@@ -95,11 +98,13 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual('New York County', my_location.administrative_area[1].name)
+        self.assertEqual(
+            'New York County',
+            my_location.administrative_area[1].name.decode('utf-8'))
 
     def test_coding(self):
         address = "São Paulo"
 
         my_location = self.google_maps.query(address).first()
 
-        self.assertEqual("São Paulo", my_location.city)
+        self.assertEqual("São Paulo", my_location.city.decode('utf-8'))
