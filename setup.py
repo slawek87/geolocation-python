@@ -22,5 +22,5 @@ setup(
                 'Application returns such information as: country, city, route/street, street number, lat and lng.',
     long_description=readme,
     keywords=['Google Maps Api', 'Google lat', 'Google lng', 'Google Maps'],
-    install_requires=['requests'],
+    install_requires=['setuptools', 'requests'],
 )
