@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import json
 import re
-import urllib2
+import requests
+
 
 STATUS_OK = 'OK'
 STATUS_ZERO_RESULTS = 'ZERO_RESULTS'
@@ -16,14 +16,16 @@ STATUS_CODES = (
     (STATUS_OVER_QUERY_LIMIT, 'Over your quota.'),
     (STATUS_REQUEST_DENIED, 'Request was denied.'),
     (STATUS_INVALID_REQUEST, 'Query is missing.'),
-    (STATUS_UNKNOWN_ERROR, 'Request could not be processed due to a server error. Try again.'),
+    (STATUS_UNKNOWN_ERROR, 'Request could not be processed due to a server'
+                           'error. Try again.'),
 )
 
 
 class GeocodeApi(object):
     STATUS_OK = 'OK'
 
-    _json_api_address = 'https://maps.googleapis.com/maps/api/geocode/json?address='
+    _json_api_address =\
+        'https://maps.googleapis.com/maps/api/geocode/json?address='
 
     location = None
 
@@ -61,13 +63,12 @@ class GeocodeApi(object):
 
     def _get_json_data(self, request):
         """Method sends request to google geocode api and returns json data."""
-        json_data = urllib2.urlopen(request).read()
-
-        json_results = json.loads(json_data)
+        # with requests lib we don't need a if/else for urlllib py2/py3
+        json_results = requests.get(request).json()
 
         status = json_results['status']
 
         if status == STATUS_OK:
             return json_results['results']
         else:
-            raise self._get_status_code(status)
+            raise Exception(self._get_status_code(status))

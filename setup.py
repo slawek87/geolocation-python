@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from distutils.core import setup
+# from distutils.core import setup
+from setuptools import setup
 
 with open('README.md', 'r') as f:
     readme = f.read()
@@ -21,4 +22,5 @@ setup(
                 'Application returns such information as: country, city, route/street, street number, lat and lng.',
     long_description=readme,
     keywords=['Google Maps Api', 'Google lat', 'Google lng', 'Google Maps'],
+    install_requires=['setuptools', 'requests'],
 )
