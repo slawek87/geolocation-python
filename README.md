@@ -19,6 +19,9 @@ Application returns such information as:
 * lat, 
 * lng.
 
+Python2 or Python3?
+-------------------
+Both!. Currently it supports python 2.7, 3.3 and 3.4.
 
 What do You need?
 -----------------
