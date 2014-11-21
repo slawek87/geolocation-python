@@ -16,7 +16,7 @@ class GoogleMaps(object):
     def __init__(self, api_key):
         self._geocode_api = GeocodeApi(api_key)
         self._reset_data()
-        self.log = logging.Logger()
+        self.log = logging.Logger('google_maps')
 
     def __repr__(self):
         return '<GoogleMaps: %s>' % self._location
