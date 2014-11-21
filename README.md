@@ -54,27 +54,27 @@ address = "New York City Wall Street 12"
 
 google_maps = GoogleMaps(api_key='your_google_maps_key') 
 
-location = google_maps.query(location=address) # sends query to Google Maps.
+location = google_maps.search(location=address) # sends search to Google Maps.
 
-print location.all() # returns all locations.
+print(location.all()) # returns all locations.
 
 my_location = location.first() # returns only first location.
 
-print my_location.city
-print my_location.route
-print my_location.street_number
-print my_location.postal_code
+print(my_location.city)
+print(my_location.route)
+print(my_location.street_number)
+print(my_location.postal_code)
 
 for administrative_area in my_location.administrative_area:
-    print "%s: %s" % (administrative_area.area_type, administrative_area.name)
+    print("{}: {}".format(administrative_area.area_type, administrative_area.name))
 
-print my_location.country
-print my_location.country_shortcut
+print(my_location.country)
+print(my_location.country_shortcut)
 
-print my_location.formatted_address
+print(my_location.formatted_address)
 
-print my_location.lat
-print my_location.lng
+print(my_location.lat)
+print(my_location.lng)
 ```
     
 More examples you should find [here](https://github.com/slawek87/geolocation-python/tree/master/examples).

@@ -1,20 +1,22 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+# encoding: utf-8
+
 from geolocation.models import LocationModel
 from geolocation.parsers import GeocodeParser
 from geolocation.api import GeocodeApi
+import logging
 
 
 class GoogleMaps(object):
     """To find address use: GoogleMaps.query(location=full_address)."""
     _geocode_parser = GeocodeParser()
 
-    _location = None
-
     _data = set()
 
     def __init__(self, api_key):
         self._geocode_api = GeocodeApi(api_key)
         self._reset_data()
+        self.log = logging.Logger()
 
     def __repr__(self):
         return '<GoogleMaps: %s>' % self._location
@@ -36,22 +38,21 @@ class GoogleMaps(object):
             location.postal_code = self._geocode_parser.get_postal_code()
 
             location.country = self._geocode_parser.get_country()
-            location.country_shortcut = self._geocode_parser.get_country_shortcut()
+            location.country_shortcut =\
+                self._geocode_parser.get_country_shortcut()
 
-            location.administrative_area = self._geocode_parser.get_administrative_area()
+            location.administrative_area =\
+                self._geocode_parser.get_administrative_area()
 
             location.lat = self._geocode_parser.get_lat()
             location.lng = self._geocode_parser.get_lng()
 
-            location.formatted_address = self._geocode_parser.get_formatted_address()
+            location.formatted_address =\
+                self._geocode_parser.get_formatted_address()
 
             self._data.add(location)
 
         return self.all()
-
-    def set_location(self, location):
-        """Method sets location value."""
-        self._location = location
 
     def all(self):
         """Method returns location list."""
@@ -63,13 +64,17 @@ class GoogleMaps(object):
 
         return None
 
-    def query(self, location):
-        """Main method should returns GoogleMaps instance."""
-        self.set_location(location)
-
+    def search(self, location):
         json_results = self._geocode_api.query(location)
-
         if json_results:
             self._to_python(json_results)
 
         return self
+
+    def query(self, location):
+        """Main method should returns GoogleMaps instance."""
+
+        self.log.warning(
+            'This method is deprecated. You should call search() method.')
+
+        return self.search(location)
