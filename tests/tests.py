@@ -15,14 +15,14 @@ class GeolocationTest(unittest.TestCase):
     def test_query(self):
         address = "New York City Wall Street 12"
 
-        location = self.google_maps.query(address)
+        location = self.google_maps.search(address)
 
         self.assertIsNotNone(location.all())
 
     def test_city(self):
         address = "New York City Wall Street 12"
 
-        location = self.google_maps.query(address)
+        location = self.google_maps.search(address)
 
         my_location = location.first()
 
@@ -31,7 +31,7 @@ class GeolocationTest(unittest.TestCase):
     def test_route(self):
         address = "New York City Wall Street 12"
 
-        location = self.google_maps.query(address)
+        location = self.google_maps.search(address)
 
         my_location = location.first()
 
@@ -40,7 +40,7 @@ class GeolocationTest(unittest.TestCase):
     def test_country(self):
         address = "New York City Wall Street 12"
 
-        location = self.google_maps.query(address)
+        location = self.google_maps.search(address)
 
         my_location = location.first()
 
@@ -49,7 +49,7 @@ class GeolocationTest(unittest.TestCase):
     def test_country_shortcut(self):
         address = "New York City Wall Street 12"
 
-        location = self.google_maps.query(address)
+        location = self.google_maps.search(address)
 
         my_location = location.first()
 
@@ -58,7 +58,7 @@ class GeolocationTest(unittest.TestCase):
     def test_lat(self):
         address = "New York City Wall Street 12"
 
-        location = self.google_maps.query(address)
+        location = self.google_maps.search(address)
 
         my_location = location.first()
 
@@ -67,7 +67,7 @@ class GeolocationTest(unittest.TestCase):
     def test_lng(self):
         address = "New York City Wall Street 12"
 
-        location = self.google_maps.query(address)
+        location = self.google_maps.search(address)
 
         my_location = location.first()
 
@@ -76,7 +76,7 @@ class GeolocationTest(unittest.TestCase):
     def test_formatted_address(self):
         address = "New York City Wall Street 12"
 
-        location = self.google_maps.query(address)
+        location = self.google_maps.search(address)
 
         my_location = location.first()
 
@@ -86,7 +86,7 @@ class GeolocationTest(unittest.TestCase):
     def test_administrative_area_level_1(self):
         address = "New York City Wall Street 12"
 
-        location = self.google_maps.query(address)
+        location = self.google_maps.search(address)
 
         my_location = location.first()
 
@@ -97,7 +97,7 @@ class GeolocationTest(unittest.TestCase):
     def test_administrative_area_level_2(self):
         address = "New York City Wall Street 12"
 
-        location = self.google_maps.query(address)
+        location = self.google_maps.search(address)
 
         my_location = location.first()
 
@@ -108,6 +108,6 @@ class GeolocationTest(unittest.TestCase):
     def test_coding(self):
         address = "São Paulo"
 
-        my_location = self.google_maps.query(address).first()
+        my_location = self.google_maps.search(address).first()
 
         self.assertEqual(u"São Paulo", my_location.city.decode('utf-8'))
