@@ -84,7 +84,7 @@ print(my_location.lng)
 lat = 40.7060008
 lng = -74.0088189
 
-my_location = self.google_maps.search(lat=lat, lng=lng).first()
+my_location = google_maps.search(lat=lat, lng=lng).first()
 
 ```
     
