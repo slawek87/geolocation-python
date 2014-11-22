@@ -1,6 +1,6 @@
 ![Alt text](https://travis-ci.org/slawek87/geolocation-python.svg?branch=master)  
 
-[![PyPI version](https://badge.fury.io/py/geolocation-python.svg)](https://pypi.python.org/pypi/geolocation-python/0.1.0)
+[![PyPI version](https://badge.fury.io/py/geolocation-python.svg)](https://pypi.python.org/pypi/geolocation-python/0.1.2)
 
 What is Geolocation?
 =====================
