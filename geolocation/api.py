@@ -27,6 +27,8 @@ NOT_IMPLEMENTED = 'Method is not implemented.'
 class BaseApi(object):
     STATUS_OK = 'OK'
 
+    log = logging.Logger('api')
+
     def __init__(self, api_key):
         self.api_key = "&key=%s" % api_key
 
@@ -54,7 +56,7 @@ class BaseApi(object):
         if status == STATUS_OK:
             return json_results['results']
 
-        logging.warning(self.get_status(status))
+        self.log.warning(self.get_status(status))
 
     def query(self, location=None, lat=None, lng=None):
         """Main method should always returns json results. This is default method for all apis.
@@ -67,7 +69,7 @@ class GeocodeApi(BaseApi):
     geocode_latlng = '%slatlng=' % geocode_api
 
     def __repr__(self):
-        return '<GeocodeApi: %s>' % self.get_api_url()
+        return '<GeocodeApi: %s>' % self.api_key
 
     def location_query(self, location):
         """Method is responsible for prepare query for geocode address api."""

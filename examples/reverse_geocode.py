@@ -9,7 +9,7 @@ if __name__ == "__main__":
     lat = 40.7060008
     lng = -74.0088189
 
-    location = google_maps.search(lat=lat, lng=lng).first()
+    location = google_maps.search(lat=lat, lng=lng)
 
     print location.all()
 

@@ -19,11 +19,10 @@ class GoogleMaps(object):
         self.log = logging.Logger('google_maps')
 
     def __repr__(self):
-        return '<GoogleMaps: %s>' % self._location
+        return '<GoogleMaps %s >' % self.all()
 
     def _reset_data(self):
         self._data = set()
-        self._location = None
 
     def _to_python(self, json_results):
         """Method should converts json_results to python object."""
