@@ -64,8 +64,9 @@ class GoogleMaps(object):
 
         return None
 
-    def search(self, location):
-        json_results = self._geocode_api.query(location)
+    def search(self, location=None, lat=None, lng=None):
+        json_results = self._geocode_api.query(location=location, lat=lat, lng=lng)
+
         if json_results:
             self._to_python(json_results)
 

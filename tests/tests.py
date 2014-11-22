@@ -111,3 +111,12 @@ class GeolocationTest(unittest.TestCase):
         my_location = self.google_maps.search(address).first()
 
         self.assertEqual(u"São Paulo", my_location.city.decode('utf-8'))
+
+    def test_latlng(self):
+        lat = 40.7060008
+        lng = -74.0088189
+
+        my_location = self.google_maps.search(lat=lat, lng=lng).first()
+
+        self.assertEqual("New York", my_location.city.decode('utf-8'))
+

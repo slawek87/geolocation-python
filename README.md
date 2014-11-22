@@ -78,6 +78,14 @@ print(my_location.formatted_address)
 
 print(my_location.lat)
 print(my_location.lng)
+
+# reverse geocode
+
+lat = 40.7060008
+lng = -74.0088189
+
+my_location = self.google_maps.search(lat=lat, lng=lng).first()
+
 ```
     
 More examples you should find [here](https://github.com/slawek87/geolocation-python/tree/master/examples).
