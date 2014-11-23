@@ -8,15 +8,15 @@ import logging
 
 
 class GoogleMaps(object):
-    """To find address use: GoogleMaps.query(location=full_address)."""
+    """To find address use: GoogleMaps.search(location=full_address)."""
     _geocode_parser = GeocodeParser()
-
     _data = set()
+
+    log = logging.Logger('google_maps')
 
     def __init__(self, api_key):
         self._geocode_api = GeocodeApi(api_key)
         self._reset_data()
-        self.log = logging.Logger('google_maps')
 
     def __repr__(self):
         return '<GoogleMaps %s >' % self.all()

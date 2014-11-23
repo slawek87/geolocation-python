@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
     google_maps = GoogleMaps(api_key='your_google_maps_api_key')
 
-    location = google_maps.query(location=address)
+    location = google_maps.search(location=address)
 
     print location.all()
 

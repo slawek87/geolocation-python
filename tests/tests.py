@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
-
+from time import sleep
 
 import unittest
 from geolocation.google_maps import GoogleMaps
@@ -113,10 +113,10 @@ class GeolocationTest(unittest.TestCase):
         self.assertEqual(u"São Paulo", my_location.city.decode('utf-8'))
 
     def test_latlng(self):
-        lat = 40.7060008
-        lng = -74.0088189
+        lat = 37.42291810
+        lng = -122.08542120
 
         my_location = self.google_maps.search(lat=lat, lng=lng).first()
 
-        self.assertEqual("New York", my_location.city.decode('utf-8'))
+        self.assertEqual("Mountain View", my_location.city.decode('utf-8'))
 

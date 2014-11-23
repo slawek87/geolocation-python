@@ -3,31 +3,12 @@ import re
 import requests
 import logging
 
-
-STATUS_OK = 'OK'
-STATUS_ZERO_RESULTS = 'ZERO_RESULTS'
-STATUS_OVER_QUERY_LIMIT = 'OVER_QUERY_LIMIT'
-STATUS_REQUEST_DENIED = 'REQUEST_DENIED'
-STATUS_INVALID_REQUEST = 'INVALID_REQUEST'
-STATUS_UNKNOWN_ERROR = 'UNKNOWN_ERROR'
-
-STATUS_CODES = (
-    (STATUS_OK, 'Successfully parsed.'),
-    (STATUS_ZERO_RESULTS, 'Successful parsed but returned no results.'),
-    (STATUS_OVER_QUERY_LIMIT, 'Over your quota.'),
-    (STATUS_REQUEST_DENIED, 'Request was denied.'),
-    (STATUS_INVALID_REQUEST, 'Query is missing.'),
-    (STATUS_UNKNOWN_ERROR, 'Request could not be processed due to a server'
-                           'error. Try again.'),
-)
-
-NOT_IMPLEMENTED = 'Method is not implemented.'
+from geolocation import const
 
 
 class BaseApi(object):
-    STATUS_OK = 'OK'
 
-    log = logging.Logger('api')
+    log = logging.Logger('google_api')
 
     def __init__(self, api_key):
         self.api_key = "&key=%s" % api_key
@@ -38,14 +19,10 @@ class BaseApi(object):
 
         return api_url
 
-    def prepare_query(self, location=None, latlng=None):
-        """Method prepares query to request for google api. This method have to be implemented on all apis."""
-        raise Exception(NOT_IMPLEMENTED)
-
     @staticmethod
-    def get_status(status):
+    def get_status_code(status):
         """Method should returns information about status code."""
-        return dict(STATUS_CODES).get(status)
+        return dict(const.STATUS_CODES).get(status)
 
     def send_request(self, request):
         """Method sends request to google geocode api and returns json data."""
@@ -53,14 +30,18 @@ class BaseApi(object):
 
         status = json_results['status']
 
-        if status == STATUS_OK:
+        if status == const.STATUS_OK:
             return json_results['results']
 
-        self.log.warning(self.get_status(status))
+        self.log.warning(self.get_status_code(status))
+
+    def prepare_query(self, location=None, latlng=None):
+        """Method prepares query to request for google api. This method have to be implemented on all apis."""
+        raise Exception(const.NOT_IMPLEMENTED)
 
     def query(self, location=None, lat=None, lng=None):
-        """Main method should always returns json results. This is default method for all apis.
-        This method is deprecated!"""
+        """Main method should always returns json results. This method have to be implemented on all apis.."""
+        raise Exception(const.NOT_IMPLEMENTED)
 
 
 class GeocodeApi(BaseApi):
@@ -72,14 +53,14 @@ class GeocodeApi(BaseApi):
         return '<GeocodeApi: %s>' % self.api_key
 
     def location_query(self, location):
-        """Method is responsible for prepare query for geocode address api."""
+        """Method is responsible for prepare query geocode address api query."""
         query_ = re.sub('\s+', ' ', location).strip()
         query_ = ',+'.join(query_.split())
 
         return self.get_api_url(query_, self.geocode_api_address)
 
     def latlng_query(self, lat, lng):
-        """Method is responsible for prepare query for geocode reverse api."""
+        """Method is responsible for prepare query geocode reverse api query."""
         latlng = "%s,%s" % (lat, lng)
         query_ = re.sub('\s+', ' ', latlng).strip()
 

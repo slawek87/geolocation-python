@@ -10,7 +10,7 @@ with open('LICENSE', 'r') as f:
 
 setup(
     name='geolocation-python',
-    version='0.1.2',
+    version='0.1.2a',
     packages=['geolocation'],
     url='',
     download_url='https://github.com/slawek87/geolocation-python/',
