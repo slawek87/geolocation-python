@@ -117,5 +117,5 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = self.google_maps.search(lat=lat, lng=lng).first()
 
-        self.assertEqual("Mountain View", my_location.city.decode('utf-8'))
+        self.assertEqual('Mountain View', my_location.city.decode('utf-8'))
 
