@@ -2,9 +2,10 @@
 
 [![PyPI version](https://badge.fury.io/py/geolocation-python.svg)](https://pypi.python.org/pypi/geolocation-python/0.1.2)
 
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/slawek87/geolocation-python?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 What is Geolocation?
 =====================
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/slawek87/geolocation-python?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Geolocation is a simple and clever application which uses google maps api.
 This application allows you to easily and quickly get information about given location.
 Application returns such information as: 
