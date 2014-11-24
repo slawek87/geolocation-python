@@ -35,7 +35,7 @@ class BaseApi(object):
 
         self.log.warning(self.get_status_code(status))
 
-    def prepare_query(self, location=None, latlng=None):
+    def prepare_query(self, location=None, lat=None, lng=None):
         """Method prepares query to request for google api. This method have to be implemented on all apis."""
         raise Exception(const.NOT_IMPLEMENTED)
 
