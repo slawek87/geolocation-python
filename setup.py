@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
-# from distutils.core import setup
-from setuptools import setup
+from distutils.core import setup
 
 with open('README.md', 'r') as f:
     readme = f.read()
 
-with open('LICENSE', 'r') as f:
+with open('LICENSE.txt', 'r') as f:
     license_ = f.read()
 
 setup(
     name='geolocation-python',
-    version='0.1.2b',
+    version='0.1.2c',
     packages=['geolocation'],
     url='',
     download_url='https://github.com/slawek87/geolocation-python/',
