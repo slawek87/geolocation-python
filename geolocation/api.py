@@ -8,7 +8,7 @@ from geolocation import const
 
 class BaseApi(object):
 
-    log = logging.Logger('google_api')
+    log = logging.getLogger('google_api')
 
     def __init__(self, api_key):
         self.api_key = "&key=%s" % api_key

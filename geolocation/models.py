@@ -5,15 +5,15 @@ class LocationModel(object):
     _administrative_area = list()
 
     def __init__(self, **kwargs):
-        self.city = kwargs.get('city', None)
-        self.route = kwargs.get('route', None)
-        self.street_number = kwargs.get('street_number', None)
-        self.country = kwargs.get('country', None)
-        self.country_shortcut = kwargs.get('country_shortcut', None)
-        self.postal_code = kwargs.get('postal_code', None)
-        self.lat = kwargs.get('lat', None)
-        self.lng = kwargs.get('lng', None)
-        self.formatted_address = kwargs.get('formatted_address', None)
+        self.city = kwargs.get('city')
+        self.route = kwargs.get('route')
+        self.street_number = kwargs.get('street_number')
+        self.country = kwargs.get('country')
+        self.country_shortcut = kwargs.get('country_shortcut')
+        self.postal_code = kwargs.get('postal_code')
+        self.lat = kwargs.get('lat')
+        self.lng = kwargs.get('lng')
+        self.formatted_address = kwargs.get('formatted_address')
 
     def __repr__(self):
         return '<LocationModel: %s>' % self.city
@@ -25,7 +25,7 @@ class LocationModel(object):
     @administrative_area.setter
     def administrative_area(self, value_list):
         for value in value_list:
-            area = AdministrativeAreaLevelModel(value['area_type'], value['name'])
+            area = AdministrativeAreaLevelModel(value.get('area_type'), value.get('name'))
             self._administrative_area.append(area)
 
 
