@@ -16,13 +16,21 @@ class GoogleMaps(object):
 
     def __init__(self, api_key):
         self._geocode_api = GeocodeApi(api_key)
-        self._reset_data()
+        self.clear()
 
     def __repr__(self):
         return '<GoogleMaps %s >' % self.all()
 
-    def _reset_data(self):
+    def clear(self):
         self._data = set()
+
+    @staticmethod
+    def validate(data):
+        """Method should always returns false when data doesn't have city value."""
+        if not data.city:
+            return False
+
+        return True
 
     def _to_python(self, json_results):
         """Method should converts json_results to python object."""
@@ -49,7 +57,8 @@ class GoogleMaps(object):
             location.formatted_address =\
                 self._geocode_parser.get_formatted_address()
 
-            self._data.add(location)
+            if self.validate(location):
+                self._data.add(location)
 
         return self.all()
 
