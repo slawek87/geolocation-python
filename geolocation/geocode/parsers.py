@@ -13,7 +13,6 @@ class GeocodeParser(object):
         self._json_data = value
 
     def set_json_data(self, value):
-        """Method sets value to json_data"""
         self.json_data = value
 
     def search_address_components(self, type_, shortcut=False):
@@ -41,7 +40,7 @@ class GeocodeParser(object):
         return geometry_location[type_]
 
     def get_formatted_address(self):
-        """Method should return full address of current location."""
+        """Method should returns full address of current location."""
         if not self.json_data:
             return None
 

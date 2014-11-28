@@ -3,7 +3,7 @@ class GeocodeOrm(object):
         self.data = data
 
     def all(self):
-        """Method returns location list."""
+        """Method should returns location list."""
         return list(self.data)
 
     def first(self):
