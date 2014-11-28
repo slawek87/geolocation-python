@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
+
 from geolocation.geocode.main import Geocode
 import logging
 
@@ -15,8 +16,6 @@ class GoogleMaps(object):
         return self.geocode.search(location, lat, lng)
 
     def query(self, location):
-        """Main method should returns GoogleMaps instance."""
-
         self.log.warning(
             'This method is deprecated. You should call search() method.')
 

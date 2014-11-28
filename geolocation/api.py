@@ -23,13 +23,13 @@ class BaseApi(object):
         """Method should returns information about status code."""
         return dict(const.STATUS_CODES).get(status)
 
-    def send_request(self, request):
-        """Method sends request to google geocode api and returns json data."""
-        json_results = requests.get(request).json()
+    def send_request(self, query):
+        """Method sends request to GoogleMaps api and returns respond with json data."""
+        respond = requests.get(query).json()
 
-        status = json_results['status']
+        status = respond.get('status')
 
         if status == const.STATUS_OK:
-            return json_results['results']
+            return respond.get('results')
 
         self.log.warning(self.get_status_code(status))

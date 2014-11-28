@@ -18,7 +18,7 @@ class Geocode(GeocodeOrm):
         return '<Geocode %s >' % self.all()
 
     def clear(self):
-        """Method clearing data when we call new search()"""
+        """Method is clearing data when we call new search() method."""
         self.data = set()
 
     @staticmethod
@@ -30,7 +30,7 @@ class Geocode(GeocodeOrm):
         return True
 
     def to_python(self, json_data):
-        """Method should converts json_results to python object."""
+        """Method should converts json_data to python object."""
         for item in json_data:
             self.parser.json_data = item
 
