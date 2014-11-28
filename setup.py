@@ -9,7 +9,7 @@ with open('LICENSE.txt', 'r') as f:
 
 setup(
     name='geolocation-python',
-    version='0.1.3',
+    version='0.2.0',
     packages=['geolocation'],
     url='',
     download_url='https://github.com/slawek87/geolocation-python/',
