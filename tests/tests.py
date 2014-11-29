@@ -5,7 +5,7 @@ import unittest
 from geolocation.google_maps import GoogleMaps
 
 
-TEST_API_KEY = 'AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM',
+TEST_API_KEY = 'AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM'
 
 
 class GeolocationTest(unittest.TestCase):
