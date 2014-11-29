@@ -1,35 +1,36 @@
+# -*- coding: utf-8 -*-
+
 import re
 from geolocation.api import BaseApi
 
 
 class GeocodeApi(BaseApi):
-    geocode_api ='https://maps.googleapis.com/maps/api/geocode/json?'
-    geocode_api_address = '%saddress=' % geocode_api
-    geocode_latlng = '%slatlng=' % geocode_api
+    api ='https://maps.googleapis.com/maps/api/geocode/json?'
+    address_parameter = '%saddress=' % api
+    latlng_parameter = '%slatlng=' % api
 
     def __repr__(self):
         return '<GeocodeApi: %s>' % self.api_key
 
-    def location_query(self, location):
-        query_ = re.sub('\s+', ' ', location).strip()
-        query_ = ',+'.join(query_.split())
+    def prepare_location_query(self, location):
+        query_ = self.str_to_query(location)
 
-        return self.get_api_url(query_, self.geocode_api_address)
+        return self.get_api_url(query_, self.address_parameter)
 
-    def latlng_query(self, lat, lng):
+    def prepare_latlng_query(self, lat, lng):
         latlng = "%s,%s" % (lat, lng)
         query_ = re.sub('\s+', ' ', latlng).strip()
 
-        return self.get_api_url(query_, self.geocode_latlng)
+        return self.get_api_url(query_, self.prepare_latlng_query)
 
     def prepare_query(self, location=None, lat=None, lng=None):
         query_ = None
 
         if location:
-            query_ = self.location_query(location)
+            query_ = self.prepare_location_query(location)
 
         if lat and lng:
-            query_ = self.latlng_query(lat, lng)
+            query_ = self.prepare_latlng_query(lat, lng)
 
         return query_
 
