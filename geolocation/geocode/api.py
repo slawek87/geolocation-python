@@ -21,7 +21,7 @@ class GeocodeApi(BaseApi):
         latlng = "%s,%s" % (lat, lng)
         query_ = re.sub('\s+', ' ', latlng).strip()
 
-        return self.get_api_url(query_, self.prepare_latlng_query)
+        return self.get_api_url(query_, self.latlng_parameter)
 
     def prepare_query(self, location=None, lat=None, lng=None):
         query_ = None
