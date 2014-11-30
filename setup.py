@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 from distutils.core import setup
 
-with open('README.md', 'r') as f:
-    readme = f.read()
+try:
+    with open('README.md', 'r') as f:
+        readme = f.read()
 
-with open('LICENSE.txt', 'r') as f:
-    license_ = f.read()
+    with open('LICENSE.txt', 'r') as f:
+        license_ = f.read()
+except:
+    readme = ''
+    license_ = ''
 
 setup(
     name='geolocation-python',
