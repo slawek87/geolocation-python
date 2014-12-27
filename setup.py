@@ -24,6 +24,6 @@ setup(
                 'This application allows you to easily and quickly get information about given localisation. '
                 'Application returns such information as: country, city, route/street, street number, lat and lng.',
     long_description=readme,
-    keywords=['Google Maps Api', 'Google lat', 'Google lng', 'Google Maps'],
+    keywords=['Python Google Maps Api', 'Google lat', 'Google lng', 'Python Google Maps'],
     install_requires=['setuptools', 'requests'],
 )
