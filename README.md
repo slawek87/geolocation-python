@@ -1,9 +1,7 @@
-![Alt text](https://travis-ci.org/slawek87/geolocation-python.svg?branch=master)  
-[![PyPI version](https://badge.fury.io/py/geolocation-python.svg)](https://pypi.python.org/pypi/geolocation-python/0.1.3)&nbsp;&nbsp;&nbsp;
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/slawek87/geolocation-python?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 What is Geolocation?
 =====================
+![Alt text](https://travis-ci.org/slawek87/geolocation-python.svg?branch=master)&nbsp;&nbsp;&nbsp;[![PyPI version](https://badge.fury.io/py/geolocation-python.svg)](https://pypi.python.org/pypi/geolocation-python/0.1.3)&nbsp;&nbsp;&nbsp;
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/slawek87/geolocation-python?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Geolocation is a simple and clever application which uses google maps api.
 This application allows you to easily and quickly get information about given location.
@@ -88,5 +86,8 @@ lng = -74.0088189
 my_location = google_maps.search(lat=lat, lng=lng).first()
 
 ```
-    
+<br/>
+![Alt text](https://github.com/iknowledge-io/team/blob/master/images/iknowledge.png)
+
+<br/>    
 More examples you should find [here](https://github.com/slawek87/geolocation-python/tree/master/examples).
