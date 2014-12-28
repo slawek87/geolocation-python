@@ -86,7 +86,5 @@ lng = -74.0088189
 my_location = google_maps.search(lat=lat, lng=lng).first()
 
 ```
-<br/>
-![Alt text](https://github.com/iknowledge-io/team/blob/master/images/iknowledge.png)
-<br/>    
+
 More examples you should find [here](https://github.com/slawek87/geolocation-python/tree/master/examples).
