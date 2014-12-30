@@ -1,25 +1,18 @@
 from geolocation.geocode.models import LocationModel
-from geolocation.geocode.orm import GeocodeOrm
+from geolocation.geocode.managers import GeocodeManager
 from geolocation.geocode.parsers import GeocodeParser
 from geolocation.geocode.api import GeocodeApi
 
 
-class Geocode(GeocodeOrm):
+class Geocode(GeocodeManager):
     parser = GeocodeParser()
-    data = set()
 
     def __init__(self, api_key):
-        super(Geocode, self).__init__(api_key)
-
+        super(Geocode, self).__init__()
         self.api = GeocodeApi(api_key)
-        self.clear()
 
     def __repr__(self):
         return '<Geocode %s >' % self.all()
-
-    def clear(self):
-        """Method is clearing data when we call new search() method."""
-        self.data = set()
 
     @staticmethod
     def validate(location):
