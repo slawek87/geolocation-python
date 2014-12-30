@@ -38,4 +38,4 @@ class DistanceMatrixApi(BaseApi):
 
 if __name__ == "__main__":
     distance_matrix = DistanceMatrixApi('AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM')
-    print distance_matrix.prepare_query(['rybnik'], ['warszawa', 'rybnik'])
+    print distance_matrix.prepare_query(['rybnik', 'oslo'], ['zagrzeb', 'oslo'])
