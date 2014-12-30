@@ -1,5 +1,5 @@
 from geolocation.geocode.models import LocationModel
-from geolocation.geocode.managers import GeocodeManager
+from geolocation.managers import GeocodeManager
 from geolocation.geocode.parsers import GeocodeParser
 from geolocation.geocode.api import GeocodeApi
 
