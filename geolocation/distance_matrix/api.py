@@ -13,10 +13,10 @@ class DistanceMatrixApi(BaseApi):
 
     def to_query(self, data):
         prepare = list()
-        data = self.convert_to_list(data)
+        data = self.to_list(data)
 
         for item in data:
-            prepare.append(self.str_to_query(item))
+            prepare.append(self.join_query(item))
 
         return "|".join(prepare)
 
