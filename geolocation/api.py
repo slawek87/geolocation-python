@@ -14,13 +14,13 @@ class BaseApi(object):
     def __init__(self, api_key):
         self.api_key = "&key=%s" % api_key
 
-    def convert_to_list(self, data):
+    def to_list(self, data):
         if not isinstance(data, list):
             data = [data]
 
         return data
 
-    def str_to_query(self, string):
+    def join_query(self, string):
         return '+'.join(re.sub('\s+', ' ', string).strip().split())
 
     def get_api_url(self, query_, api):

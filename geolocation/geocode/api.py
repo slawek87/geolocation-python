@@ -13,7 +13,7 @@ class GeocodeApi(BaseApi):
         return '<GeocodeApi: %s>' % self.api_key
 
     def prepare_location_query(self, location):
-        query_ = self.str_to_query(location)
+        query_ = self.join_query(location)
 
         return self.get_api_url(query_, self.address_parameter)
 
