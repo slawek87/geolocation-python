@@ -23,9 +23,9 @@ class BaseApi(object):
     def join_query(self, string):
         return '+'.join(re.sub('\s+', ' ', string).strip().split())
 
-    def get_api_url(self, query_, api):
+    def get_api_url(self, query, api):
         """Method should returns api url for request."""
-        api_url = "%s%s%s" % (api, query_, self.api_key)
+        api_url = "%s%s%s" % (api, query, self.api_key)
 
         return api_url
 
