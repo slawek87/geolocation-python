@@ -11,7 +11,7 @@ class DistanceMatrixApi(BaseApi):
     def __repr__(self):
         return '<GoogleMatrixApi: %s>' % self.api_key
 
-    def convert_to_query(self, data):
+    def to_query(self, data):
         prepare = list()
         data = self.convert_to_list(data)
 
@@ -21,12 +21,12 @@ class DistanceMatrixApi(BaseApi):
         return "|".join(prepare)
 
     def prepare_origins_query(self, origins):
-        origins = self.convert_to_query(origins)
+        origins = self.to_query(origins)
 
         return "%s%s" % (self.origins_parameter, origins)
 
     def prepare_destinations_query(self, destinations):
-        destinations = self.convert_to_query(destinations)
+        destinations = self.to_query(destinations)
 
         return "%s%s" % (self.destinations_parameter, destinations)
 
