@@ -4,15 +4,15 @@ from geolocation.geocode.parsers import GeocodeParser
 from geolocation.geocode.api import GeocodeApi
 
 
-class Geocode(GeocodeManager):
+class Geocode():
     parser = GeocodeParser()
+    manager = GeocodeManager()
 
     def __init__(self, api_key):
-        super(Geocode, self).__init__()
         self.api = GeocodeApi(api_key)
 
     def __repr__(self):
-        return '<Geocode %s >' % self.all()
+        return '<Geocode %s >' % self.manager.all()
 
     @staticmethod
     def validate(location):
@@ -24,7 +24,10 @@ class Geocode(GeocodeManager):
 
     def to_python(self, json_data):
         """Method should converts json_data to python object."""
-        for item in json_data:
+
+        self.manager.clear()  # always clear manager data.
+
+        for item in json_data.get('results'):
             self.parser.json_data = item
 
             location = LocationModel()
@@ -45,7 +48,7 @@ class Geocode(GeocodeManager):
             location.formatted_address = self.parser.get_formatted_address()
 
             if self.validate(location):
-                self.data.add(location)
+                self.manager.data.add(location)
 
     def search(self, location=None, lat=None, lng=None):
         json_data = self.api.query(location=location, lat=lat, lng=lng)
@@ -53,4 +56,4 @@ class Geocode(GeocodeManager):
         if json_data:
             self.to_python(json_data)
 
-        return self
+        return self.manager

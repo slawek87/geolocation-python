@@ -1,9 +1,6 @@
 class GeocodeManager(object):
     data = set()
 
-    def __init__(self):
-        self.clear()
-
     def __getitem__(self, key):
         return self.list_data[key]
 

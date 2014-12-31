@@ -35,7 +35,14 @@ class DistanceMatrixApi(BaseApi):
 
         return self.get_api_url(query_, self.api)
 
+    def query(self, origins, destinations):
+        query_ = self.prepare_query(origins, destinations)
+        print query_
+
+        return self.send_request(query_)
 
 if __name__ == "__main__":
     distance_matrix = DistanceMatrixApi('AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM')
-    print distance_matrix.prepare_query(['rybnik', 'oslo'], ['zagrzeb', 'oslo'])
+    print distance_matrix.query(['rybnik', 'oslo'], ['zagrzeb', 'oslo'])
+
+

@@ -35,6 +35,6 @@ class GeocodeApi(BaseApi):
         return query_
 
     def query(self, location=None, lat=None, lng=None):
-        request = self.prepare_query(location=location, lat=lat, lng=lng)
+        query_ = self.prepare_query(location=location, lat=lat, lng=lng)
 
-        return self.send_request(request)
+        return self.send_request(query_)

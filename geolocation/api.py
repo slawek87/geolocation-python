@@ -41,6 +41,8 @@ class BaseApi(object):
         status = respond.get('status')
 
         if status == const.STATUS_OK:
-            return respond.get('results')
+            return respond
 
         self.log.warning(self.get_status_code(status))
+
+        return None
