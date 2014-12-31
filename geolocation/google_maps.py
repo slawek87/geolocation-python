@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
-from geolocation.distance_matrix.main import DistanceMatrix
 
+from geolocation.distance_matrix.main import DistanceMatrix
 from geolocation.geocode.main import Geocode
 import logging
 
