@@ -10,5 +10,4 @@ class Parser(object):
 
     @json_data.setter
     def json_data(self, value):
-        print value
         self._json_data = value
