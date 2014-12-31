@@ -81,3 +81,7 @@ class GeocodeParser(Parser):
                 data.append(dict(name=name, area_type=area_type))
 
         return data
+
+    def get_results(self):
+        """Method return results."""
+        return self.json_data.get('results')

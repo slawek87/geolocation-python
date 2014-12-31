@@ -1,18 +1,15 @@
 from geolocation.geocode.models import LocationModel
-from geolocation.managers import GeocodeManager
+from geolocation.managers import Manager
 from geolocation.geocode.parsers import GeocodeParser
 from geolocation.geocode.api import GeocodeApi
 
 
 class Geocode():
     parser = GeocodeParser()
-    manager = GeocodeManager()
+    manager = Manager()
 
     def __init__(self, api_key):
         self.api = GeocodeApi(api_key)
-
-    def __repr__(self):
-        return '<Geocode %s >' % self.manager.all()
 
     @staticmethod
     def validate(location):
@@ -24,31 +21,33 @@ class Geocode():
 
     def to_python(self, json_data):
         """Method should converts json_data to python object."""
-
         self.manager.clear()  # always clear manager data.
+        self.parser.json_data = json_data
 
-        for item in json_data.get('results'):
-            self.parser.json_data = item
+        results = self.parser.get_results()
 
-            location = LocationModel()
+        for result in results:
+            self.parser.json_data = result
 
-            location.city = self.parser.get_city()
-            location.route = self.parser.get_route()
-            location.street_number = self.parser.get_street_number()
-            location.postal_code = self.parser.get_postal_code()
+            model = LocationModel()
 
-            location.country = self.parser.get_country()
-            location.country_shortcut = self.parser.get_country_shortcut()
+            model.city = self.parser.get_city()
+            model.route = self.parser.get_route()
+            model.street_number = self.parser.get_street_number()
+            model.postal_code = self.parser.get_postal_code()
 
-            location.administrative_area = self.parser.get_administrative_area()
+            model.country = self.parser.get_country()
+            model.country_shortcut = self.parser.get_country_shortcut()
 
-            location.lat = self.parser.get_lat()
-            location.lng = self.parser.get_lng()
+            model.administrative_area = self.parser.get_administrative_area()
 
-            location.formatted_address = self.parser.get_formatted_address()
+            model.lat = self.parser.get_lat()
+            model.lng = self.parser.get_lng()
 
-            if self.validate(location):
-                self.manager.data.add(location)
+            model.formatted_address = self.parser.get_formatted_address()
+
+            if self.validate(model):
+                self.manager.data.add(model)
 
     def search(self, location=None, lat=None, lng=None):
         json_data = self.api.query(location=location, lat=lat, lng=lng)

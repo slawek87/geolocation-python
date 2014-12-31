@@ -1,4 +1,4 @@
-class GeocodeManager(object):
+class Manager(object):
     data = set()
 
     def __getitem__(self, key):
@@ -12,7 +12,7 @@ class GeocodeManager(object):
         return list(self.data)
 
     def clear(self):
-        """Method is clearing data when we call new search() method."""
+        """Method clears data when we call new search() or new distance() method."""
         self.data = set()
 
     def all(self):
