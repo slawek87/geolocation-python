@@ -1,20 +1,8 @@
 # -*- coding: utf-8 -*-
+from geolocation.parser import Parser
 
 
-class GeocodeParser(object):
-    _json_data = None
-
-    @property
-    def json_data(self):
-        return self._json_data
-
-    @json_data.setter
-    def json_data(self, value):
-        self._json_data = value
-
-    def set_json_data(self, value):
-        self.json_data = value
-
+class GeocodeParser(Parser):
     def search_address_components(self, type_, shortcut=False):
         """Method searches address components in google maps json data."""
         data = None
