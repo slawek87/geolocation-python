@@ -50,11 +50,3 @@ class DistanceMatrix():
             self.to_python(json_data)
 
         return self.manager
-
-
-if __name__ == "__main__":
-    distance_matrix = DistanceMatrix('AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM')
-    print distance_matrix.distance(['rybnik', 'oslo'], ['zagrzeb', 'oslo'])
-
-    for item in distance_matrix.distance(['rybnik', 'oslo'], ['zagrzeb', 'oslo']):
-        print item
