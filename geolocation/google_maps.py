@@ -20,12 +20,6 @@ class GoogleMaps(object):
     def distance(self, origins, destinations):
         return self.distance_matrix.distance(origins, destinations)
 
-    def query(self, location):
-        self.log.warning(
-            'This method is deprecated. You should call search() method.')
-
-        return self.search(location)
-
 
 if __name__ == "__main__":
     gmaps = GoogleMaps('AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM')
