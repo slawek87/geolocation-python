@@ -21,8 +21,9 @@ class GoogleMaps(object):
         return self.distance_matrix.distance(origins, destinations)
 
 
-# if __name__ == "__main__":
-#     gmaps = GoogleMaps('AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM')
-#
-#     for item in gmaps.distance(['rybnik', 'oslo'], ['zagrzeb', 'oslo']):
-#         print item
+if __name__ == "__main__":
+    gmaps = GoogleMaps('AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM')
+
+    for item in gmaps.distance(['rybnik', 'oslo'], ['zagrzeb', 'oslo']):
+        #print item.duration.days, item.duration.hours, item.duration.minutes, item.duration.seconds
+        print item.distance.kilometers, item.distance.meters, item.distance.miles
