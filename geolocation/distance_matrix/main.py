@@ -42,9 +42,9 @@ class DistanceMatrix():
 
             origin_counter += 1
 
-    def distance(self, origins, destinations):
+    def distance(self, origins, destinations, mode):
         """Method returns distance between origins and destination."""
-        json_data = self.api.query(origins, destinations)
+        json_data = self.api.query(origins, destinations, mode)
 
         if json_data:
             self.to_python(json_data)

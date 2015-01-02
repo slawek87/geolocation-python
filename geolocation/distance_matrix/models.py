@@ -49,17 +49,18 @@ class DistanceMatrixModel(object):
     def distance(self, value):
         model = Distance()
 
-        pattern = r'(?P<value>[\d,]+)\s(?P<unit>km|m)$'
+        if value:
+            pattern = r'(?P<value>[\d,]+)\s(?P<unit>km|m)$'
 
-        unit = re.match(pattern, value).group('unit')
-        value = re.match(pattern, value).group('value').replace(',', '.')
+            unit = re.match(pattern, value).group('unit')
+            value = re.match(pattern, value).group('value').replace(',', '.')
 
-        if unit == const.UNIT_KM:
-            model.kilometers = Decimal(value)
-            model.meters = Decimal(value)*const.ONE_KILOMETER
-        else:
-            model.kilometers = Decimal(value)/const.ONE_KILOMETER
-            model.meters = Decimal(value)
+            if unit == const.UNIT_KM:
+                model.kilometers = Decimal(value)
+                model.meters = Decimal(value)*const.ONE_KILOMETER
+            else:
+                model.kilometers = Decimal(value)/const.ONE_KILOMETER
+                model.meters = Decimal(value)
 
         self._distance = model
 

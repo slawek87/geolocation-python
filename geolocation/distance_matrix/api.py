@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 
 from geolocation.api import BaseApi
+from geolocation.distance_matrix import const
 
 
 class DistanceMatrixApi(BaseApi):
     api ='https://maps.googleapis.com/maps/api/distancematrix/json?'
     origins_parameter = 'origins='
     destinations_parameter = 'destinations='
+
+    modes = dict(const.MODES)
 
     def __repr__(self):
         return '<GoogleMatrixApi: %s>' % self.api_key
@@ -30,13 +33,24 @@ class DistanceMatrixApi(BaseApi):
 
         return "%s%s" % (self.destinations_parameter, destinations)
 
-    def prepare_query(self, origins, destinations):
-        query_ = "%s&%s" % (self.prepare_origins_query(origins), self.prepare_destinations_query(destinations))
+    def prepare_mode_query(self, mode):
+        mode = self.modes.get(mode)
+
+        return "mode=%s" % mode
+
+    def prepare_query(self, origins, destinations, mode):
+        query_ = "%s&%s&%s" % (
+            self.prepare_origins_query(origins),
+            self.prepare_destinations_query(destinations),
+            self.prepare_mode_query(mode)
+        )
 
         return self.get_api_url(query_, self.api)
 
-    def query(self, origins, destinations):
-        query_ = self.prepare_query(origins, destinations)
+    def query(self, origins, destinations, mode):
+        query_ = self.prepare_query(origins, destinations, mode)
+
+        print query_
 
         return self.send_request(query_)
 
