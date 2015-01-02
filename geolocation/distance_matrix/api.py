@@ -11,6 +11,8 @@ class DistanceMatrixApi(BaseApi):
 
     modes = dict(const.MODES)
 
+    avoids = dict(const.AVOIDS)
+
     def __repr__(self):
         return '<GoogleMatrixApi: %s>' % self.api_key
 
@@ -38,17 +40,25 @@ class DistanceMatrixApi(BaseApi):
 
         return "mode=%s" % mode
 
-    def prepare_query(self, origins, destinations, mode):
+    def prepare_avoid_query(self, avoid):
+        avoid = self.avoids.get(avoid)
+
+        return "avoid=%s" % avoid
+
+    def prepare_query(self, origins, destinations, mode, avoid=None):
         query_ = "%s&%s&%s" % (
             self.prepare_origins_query(origins),
             self.prepare_destinations_query(destinations),
             self.prepare_mode_query(mode)
         )
 
+        if avoid:
+            query_ = "%s&%s" % (query_, self.prepare_avoid_query(avoid))
+
         return self.get_api_url(query_, self.api)
 
-    def query(self, origins, destinations, mode):
-        query_ = self.prepare_query(origins, destinations, mode)
+    def query(self, origins, destinations, mode, avoid=None):
+        query_ = self.prepare_query(origins, destinations, mode, avoid)
 
         print query_
 

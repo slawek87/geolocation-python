@@ -18,3 +18,14 @@ MODES = (
     (MODE_WALKING, 'walking'),
     (MODE_BICYCLING, 'bicycling')
 )
+
+
+AVOID_TOLLS = 1
+AVOID_HIGHWAYS = 2
+AVOID_FERRIES = 3
+
+AVOIDS = (
+    (AVOID_TOLLS, 'tools'),
+    (AVOID_HIGHWAYS, 'highways'),
+    (AVOID_FERRIES, 'ferries')
+)
