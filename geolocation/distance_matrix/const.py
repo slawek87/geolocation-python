@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from decimal import Decimal
 
 ONE_MILE = Decimal(0.62137)  # km units
