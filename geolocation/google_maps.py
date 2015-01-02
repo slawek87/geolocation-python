@@ -19,15 +19,15 @@ class GoogleMaps(object):
     def search(self, location=None, lat=None, lng=None):
         return self.geocode.search(location, lat, lng)
 
-    def distance(self, origins, destinations, mode=const.MODE_DRIVING):
-        return self.distance_matrix.distance(origins, destinations, mode)
+    def distance(self, origins, destinations, mode=const.MODE_DRIVING, avoid=None):
+        return self.distance_matrix.distance(origins, destinations, mode, avoid)
 
 
-if __name__ == "__main__":
-    gmaps = GoogleMaps('AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM')
-
-    for item in gmaps.distance(['rybnik', 'oslo'], ['zagrzeb', 'oslo'], const.MODE_BICYCLING):
-        print "duration: %s" % item.duration
-        print "km: %s" % item.distance.kilometers
-        print "m: %s" % item.distance.meters
-        print "miles: %s" % item.distance.miles
+# if __name__ == "__main__":
+#     gmaps = GoogleMaps('AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM')
+#
+#     for item in gmaps.distance(['rybnik', 'oslo'], ['zagrzeb', 'oslo'], const.MODE_BICYCLING, const.AVOID_HIGHWAYS):
+#         print "duration: %s" % item.duration
+#         print "km: %s" % item.distance.kilometers
+#         print "m: %s" % item.distance.meters
+#         print "miles: %s" % item.distance.miles
