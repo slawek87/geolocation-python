@@ -2,10 +2,7 @@ import datetime
 from decimal import Decimal
 import re
 
-ONE_MILE = Decimal(0.62137)
-ONE_FEET = Decimal(3.2808)
-
-ONE_KILOMETER = Decimal(1000.00)
+from geolocation.distance_matrix import const
 
 
 class DistanceMatrixModel(object):
@@ -21,41 +18,50 @@ class DistanceMatrixModel(object):
 
     @property
     def duration(self):
+        return self._duration
+
+    @duration.setter
+    def duration(self, value):
+        duration = datetime.timedelta(seconds=value)
+
         model = Duration()
 
-        str_duration = str(self._duration)
+        str_duration = str(duration)
 
-        if self._duration.days:
-            pattern = r'(?P<days>\d)\sdays,\s(?P<hours>\d+):(?P<minutes>\d+):(?P<seconds>\d+)'
+        if duration.days:
+            pattern = r'(?P<days>\d)\sdays,\s(?P<hours>\d+):(?P<minutes>\d+):(?P<seconds>\d+)$'
             model.days = int(re.match(pattern, str_duration).group('days'))
         else:
-            pattern = r'(?P<hours>\d+):(?P<minutes>\d+):(?P<seconds>\d+)'
+            pattern = r'(?P<hours>\d+):(?P<minutes>\d+):(?P<seconds>\d+)$'
 
         model.hours = int(re.match(pattern, str_duration).group('hours'))
         model.minutes = int(re.match(pattern, str_duration).group('minutes'))
         model.seconds = int(re.match(pattern, str_duration).group('seconds'))
 
-        return model
-
-    @duration.setter
-    def duration(self, value):
-        self._duration = datetime.timedelta(seconds=value)
+        self._duration = model
 
     @property
     def distance(self):
-        print self._distance
-        kilometers, meters = str(self._distance).split('.')
-
-        model = Distance()
-        model.kilometers = int(kilometers)
-        model.meters = int(meters)
-
-        return model
+        return self._distance
 
 
     @distance.setter
     def distance(self, value):
-        self._distance = float(value)/1000
+        model = Distance()
+
+        pattern = r'(?P<value>[\d,]+)\s(?P<unit>km|m)$'
+
+        unit = re.match(pattern, value).group('unit')
+        value = re.match(pattern, value).group('value').replace(',', '.')
+
+        if unit == const.UNIT_KM:
+            model.kilometers = Decimal(value)
+            model.meters = Decimal(value)*const.ONE_KILOMETER
+        else:
+            model.kilometers = Decimal(value)/const.ONE_KILOMETER
+            model.meters = Decimal(value)
+
+        self._distance = model
 
 
 class Duration(object):
@@ -65,12 +71,18 @@ class Duration(object):
         self.minutes = int(kwargs.get('minutes', 0))
         self.seconds = int(kwargs.get('seconds', 0))
 
+    def __str__(self):
+        return "%sd %sh %sm %ss" % (self.days, self.hours, self.minutes, self.seconds)
+
 
 class Distance(object):
     def __init__(self, **kwargs):
-        self.meters = int(kwargs.get('meters', 0))
-        self.kilometers = int(kwargs.get('kilometers', 0))
+        self.meters = Decimal(kwargs.get('meters', 0))
+        self.kilometers = Decimal(kwargs.get('kilometers', 0))
+
+    def __str__(self):
+        return "%s km" % self.kilometers
 
     @property
     def miles(self):
-        return round((self.kilometers + (self.meters/ONE_KILOMETER))*ONE_MILE, 4)
+        return round(self.kilometers*const.ONE_MILE, 4)
