@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from geolocation.distance_matrix.api import DistanceMatrixApi
 from geolocation.distance_matrix.models import DistanceMatrixModel
 from geolocation.distance_matrix.parser import DistanceMatrixParser

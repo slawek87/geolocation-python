@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from geolocation.parser import Parser
 
 
@@ -28,5 +29,5 @@ class DistanceMatrixParser(Parser):
         distance = self.json_data.get('distance')
 
         value = distance.get('text') if distance else 0
-        
+
         return value
