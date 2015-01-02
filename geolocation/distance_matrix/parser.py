@@ -17,8 +17,16 @@ class DistanceMatrixParser(Parser):
 
     def get_duration(self):
         """Method returns durations in seconds for current element."""
-        return self.json_data.get('duration').get('value')
+        duration = self.json_data.get('duration')
+
+        value = duration.get('value') if duration else 0
+
+        return value
 
     def get_distance(self):
         """Method returns distance in meters for current element."""
-        return self.json_data.get('distance').get('text')
+        distance = self.json_data.get('distance')
+
+        value = distance.get('text') if distance else 0
+        
+        return value
