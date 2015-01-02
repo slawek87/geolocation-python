@@ -21,4 +21,4 @@ class DistanceMatrixParser(Parser):
 
     def get_distance(self):
         """Method returns distance in meters for current element."""
-        return self.json_data.get('distance').get('value')
+        return self.json_data.get('distance').get('text')
