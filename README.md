@@ -1,11 +1,12 @@
-What is Geolocation?
+What is Geolocation 0.2.0?
 =====================
-![Alt text](https://travis-ci.org/slawek87/geolocation-python.svg?branch=master)&nbsp;&nbsp;&nbsp;[![PyPI version](https://badge.fury.io/py/geolocation-python.svg)](https://pypi.python.org/pypi/geolocation-python/0.1.3)&nbsp;&nbsp;&nbsp;
+![Alt text](https://travis-ci.org/iknowledge-io/geolocation-python.svg?branch=master)&nbsp;&nbsp;&nbsp;[![PyPI version](https://badge.fury.io/py/geolocation-python.svg)](https://pypi.python.org/pypi/geolocation-python/0.1.3)&nbsp;&nbsp;&nbsp;
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/slawek87/geolocation-python?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Geolocation is a simple and clever application which uses google maps api.
-This application allows you to easily and quickly get information about given location.
-Application returns such information as: 
+
+1. Geocode Module allows you to easily and quickly get information about given location.
+Geocode Module returns such information as: 
 
 * country, 
 * country short form,
@@ -18,6 +19,17 @@ Application returns such information as:
 * lat, 
 * lng.
 
+2. Distance Module allows you to get information about travel distance and time for a matrix of origins and destinations.
+Distance Module returns such information as:
+
+* origin address
+* destination address
+* duration
+* distance
+    - kilometers
+    - meters
+    - miles
+
 Python2 or Python3?
 -------------------
 Both!. Currently it supports python 2.7, 3.3 and 3.4.
@@ -29,15 +41,19 @@ To use this application you need to have Google API key.
 
 1. Open [APIs console](https://code.google.com/apis/console).
 
-  ![Alt text](https://github.com/slawek87/geolocation-python/blob/master/docs/images/geocode-1.png?raw=true "APIs console")
+  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/master/docs/images/geocode-1.png?raw=true "APIs console")
 
 2. Turn On Geocode API.
 
-  ![Alt text](https://github.com/slawek87/geolocation-python/blob/master/docs/images/geocode-2.png?raw=true "Geocode Api")
+  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/master/docs/images/geocode-2.png?raw=true "Geocode Api")
 
-3. Get your API Key.
+3. Turn On Distance Matrix API.
 
-  ![Alt text](https://github.com/slawek87/geolocation-python/blob/master/docs/images/geocode-3.png?raw=true "API KEY")
+  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/master/docs/images/distance-1.png?raw=true "Distance Matrix Api")
+  
+4. Get your API Key.
+
+  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/master/docs/images/geocode-3.png?raw=true "API KEY")
 
 
 How to install it?
@@ -47,6 +63,8 @@ How to install it?
 
 How to use it?
 -----------------------
+Geocode Module
+
 ```python
 # -*- coding: utf-8 -*-
 
@@ -87,4 +105,86 @@ my_location = google_maps.search(lat=lat, lng=lng).first()
 
 ```
 
-More examples you should find [here](https://github.com/slawek87/geolocation-python/tree/master/examples).
+Distance Module
+
+```python
+# -*- coding: utf-8 -*-
+
+origins = ['rybnik', 'oslo']
+destinations = ['zagrzeb']
+
+google_maps = GoogleMaps(api_key='your_google_maps_key')
+
+items = google_maps.distance(origins, destinations).all()
+
+for item in items:
+    print 'origin: %s' % item.origin
+    print 'destination: %s' % item.destination
+    print 'km: %s' % item.distance.kilometers
+    print 'm: %s' % item.distance.meters
+    print 'miles: %s' % item.distance.miles
+    print 'duration: %s' % item.duration
+
+items = google_maps.distance(origins, destinations).all()
+
+for item in items:
+    print 'origin: %s' % item.origin
+    print 'destination: %s' % item.destination
+    print 'km: %s' % item.distance.kilometers
+    print 'm: %s' % item.distance.meters
+    print 'miles: %s' % item.distance.miles
+    print 'duration: %s' % item.duration
+
+items = google_maps.distance(origins, destinations, const.MODE_BICYCLING).all()
+
+for item in items:
+    print 'origin: %s' % item.origin
+    print 'destination: %s' % item.destination
+    print 'km: %s' % item.distance.kilometers
+    print 'm: %s' % item.distance.meters
+    print 'miles: %s' % item.distance.miles
+    print 'duration: %s' % item.duration
+
+items = google_maps.distance(origins, destinations, const.MODE_WALKING).all()
+
+for item in items:
+    print 'origin: %s' % item.origin
+    print 'destination: %s' % item.destination
+    print 'km: %s' % item.distance.kilometers
+    print 'm: %s' % item.distance.meters
+    print 'miles: %s' % item.distance.miles
+    print 'duration: %s' % item.duration
+
+items = google_maps.distance(origins, destinations, avoid=const.AVOID_HIGHWAYS).all()
+
+for item in items:
+    print 'origin: %s' % item.origin
+    print 'destination: %s' % item.destination
+    print 'km: %s' % item.distance.kilometers
+    print 'm: %s' % item.distance.meters
+    print 'miles: %s' % item.distance.miles
+    print 'duration: %s' % item.duration
+
+items = google_maps.distance(origins, destinations, avoid=const.AVOID_FERRIES).all()
+
+for item in items:
+    print 'origin: %s' % item.origin
+    print 'destination: %s' % item.destination
+    print 'km: %s' % item.distance.kilometers
+    print 'm: %s' % item.distance.meters
+    print 'miles: %s' % item.distance.miles
+    print 'duration: %s' % item.duration
+
+items = google_maps.distance(origins, destinations, avoid=const.AVOID_TOLLS).all()
+
+for item in items:
+    print 'origin: %s' % item.origin
+    print 'destination: %s' % item.destination
+    print 'km: %s' % item.distance.kilometers
+    print 'm: %s' % item.distance.meters
+    print 'miles: %s' % item.distance.miles
+    print 'duration: %s' % item.duration
+
+```
+
+More examples you should find [here](https://github.com/iknowledge-io/geolocation-python/tree/master/examples).

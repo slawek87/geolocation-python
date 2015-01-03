@@ -45,7 +45,20 @@ class DistanceMatrix():
             origin_counter += 1
 
     def distance(self, origins, destinations, mode, avoid=None):
-        """Method returns distance between origins and destination."""
+        """Method returns distance between origins and destination.
+
+            mode — specifies the mode of transport to use when calculating directions. Valid values are:
+                * driving (default) indicates standard driving directions using the road network.
+                * walking requests walking directions via pedestrian paths & sidewalks (where available).
+                * bicycling requests bicycling directions via bicycle paths & preferred streets
+                (currently only available in the US and some Canadian cities).
+
+            Directions may be calculated that adhere to certain restrictions. Restrictions are indicated by use
+            of the avoid parameter, and an argument to that parameter indicating the restriction to avoid.
+            The following estrictions are supported:
+                * avoid=tolls
+                * avoid=highways
+                * avoid=ferries"""
         json_data = self.api.query(origins, destinations, mode, avoid)
 
         if json_data:
