@@ -146,7 +146,7 @@ for item in items:
     print 'km: %s' % item.distance.kilometers
     print 'm: %s' % item.distance.meters
     print 'miles: %s' % item.distance.miles
-    print 'duration: %s' % item.duration
+    print 'duration: %s' % item.duration 
 
 items = google_maps.distance(origins, destinations, const.MODE_BICYCLING).all()
 
