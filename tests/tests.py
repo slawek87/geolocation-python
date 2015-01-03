@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # encoding: utf-8
+from decimal import Decimal
 
 import unittest
 from geolocation.google_maps import GoogleMaps
+from geolocation.distance_matrix import const
 
 
 TEST_API_KEY = 'AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM'
@@ -120,3 +122,54 @@ class GeolocationTest(unittest.TestCase):
 
         self.assertEqual('Mountain View', my_location.city.decode('utf-8'))
 
+
+class DistanceMatrixTest(unittest.TestCase):
+    def setUp(self):
+        self.google_maps = GoogleMaps(api_key=TEST_API_KEY)
+
+    def test_distance_matrix(self):
+        origins = ['rybnik', 'oslo']
+        destinations = ['zagrzeb']
+
+        items = self.google_maps.distance(origins, destinations).all()
+
+        for item in items:
+            if item.origin == 'Rybnik, Poland':
+                self.assertEqual(item.destination, 'Zagreb, Croatia')
+                self.assertEqual(item.distance.kilometers, Decimal(713))
+                self.assertEqual(item.distance.meters, 713000)
+                self.assertEqual(item.distance.miles, 443.0368)
+                self.assertEqual(str(item.duration), '0d 7h 7m 47s')
+
+            if item.origin == 'Oslo, Norway':
+                self.assertEqual(item.destination, 'Zagreb, Croatia')
+                self.assertEqual(item.distance.kilometers, 2063)
+                self.assertEqual(item.distance.meters, 2063000)
+                self.assertEqual(item.distance.miles, 1281.8863)
+                self.assertEqual(str(item.duration), '0d 21h 18m 29s')
+
+    def test_distance_matrix_bicycling(self):
+        origins = ['rybnik']
+        destinations = ['oslo']
+
+        item = self.google_maps.distance(origins, destinations, const.MODE_BICYCLING).first()
+
+        self.assertEqual(item.origin, 'Rybnik, Poland')
+        self.assertEqual(item.destination, 'Oslo, Norway')
+        self.assertEqual(item.distance.kilometers, 1596)
+        self.assertEqual(item.distance.meters, 1596000)
+        self.assertEqual(item.distance.miles, 991.7065)
+        self.assertEqual(str(item.duration), '3d 11h 7m 25s')
+
+    def test_distance_matrix_walking(self):
+        origins = ['rybnik']
+        destinations = ['oslo']
+
+        item = self.google_maps.distance(origins, destinations, const.MODE_WALKING).first()
+
+        self.assertEqual(item.origin, 'Rybnik, Poland')
+        self.assertEqual(item.destination, 'Oslo, Norway')
+        self.assertEqual(item.distance.kilometers, 1380)
+        self.assertEqual(item.distance.meters, 1380000)
+        self.assertEqual(item.distance.miles, 857.4906)
+        self.assertEqual(str(item.duration), '10d 9h 32m 4s')
