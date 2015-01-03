@@ -8,7 +8,7 @@ if __name__ == "__main__":
 
     google_maps = GoogleMaps(api_key='your_google_maps_key')
 
-    items = google_maps.distance(origins, destinations).all()
+    items = google_maps.distance(origins, destinations).all()  # default mode parameter is const.MODE_DRIVING
 
     for item in items:
         print 'origin: %s' % item.origin
@@ -16,17 +16,14 @@ if __name__ == "__main__":
         print 'km: %s' % item.distance.kilometers
         print 'm: %s' % item.distance.meters
         print 'miles: %s' % item.distance.miles
-        print 'duration: %s' % item.duration
+        print 'duration: %s' % item.duration  # it returns str
+        print 'duration datetime: %s' % item.duration.datetime  # it returns datetime
 
-    items = google_maps.distance(origins, destinations).all()
-
-    for item in items:
-        print 'origin: %s' % item.origin
-        print 'destination: %s' % item.destination
-        print 'km: %s' % item.distance.kilometers
-        print 'm: %s' % item.distance.meters
-        print 'miles: %s' % item.distance.miles
-        print 'duration: %s' % item.duration
+        # you can also get items from duration
+        print 'duration days: %s' % item.duration.days
+        print 'duration hours: %s' % item.duration.hours
+        print 'duration minutes: %s' % item.duration.minutes
+        print 'duration seconds: %s' % item.duration.secondas
 
     items = google_maps.distance(origins, destinations, const.MODE_BICYCLING).all()
 
