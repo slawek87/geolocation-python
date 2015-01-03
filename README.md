@@ -41,19 +41,19 @@ To use this application you need to have Google API key.
 
 1. Open [APIs console](https://code.google.com/apis/console).
 
-  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/master/docs/images/geocode-1.png?raw=true "APIs console")
+  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/geolocation-0.2.0/docs/images/geocode-1.png?raw=true "APIs console")
 
 2. Turn On Geocode API.
 
-  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/master/docs/images/geocode-2.png?raw=true "Geocode Api")
+  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/geolocation-0.2.0/docs/images/geocode-2.png?raw=true "Geocode Api")
 
 3. Turn On Distance Matrix API.
 
-  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/master/docs/images/distance-1.png?raw=true "Distance Matrix Api")
+  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/geolocation-0.2.0/docs/images/distance-1.png?raw=true "Distance Matrix Api")
   
 4. Get your API Key.
 
-  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/master/docs/images/geocode-3.png?raw=true "API KEY")
+  ![Alt text](https://github.com/iknowledge-io/geolocation-python/blob/geolocation-0.2.0/docs/images/geocode-3.png?raw=true "API KEY")
 
 
 How to install it?
