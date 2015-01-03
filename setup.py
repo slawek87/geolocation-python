@@ -22,8 +22,9 @@ setup(
     author_email='slawek@redsoftware.pl',
     description='Geolocation is a simple and clever application which uses google maps api. '
                 'This application allows you to easily and quickly get information about given localisation. '
-                'Application returns such information as: country, city, route/street, street number, lat and lng.',
+                'Application returns such information as: country, city, route/street, street number, lat and lng,'
+                'travel distance and time for a matrix of origins and destinations.',
     long_description=readme,
-    keywords=['Python Google Maps Api', 'Google lat', 'Google lng', 'Python Google Maps'],
+    keywords=['Python Google Maps Api', 'Google lat', 'Google lng', 'Python Google Maps', 'Google Maps Distance'],
     install_requires=['setuptools', 'requests'],
 )
