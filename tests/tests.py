@@ -196,10 +196,10 @@ class DistanceMatrixTest(unittest.TestCase):
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertEqual(item.distance.kilometers, 1518)
-        self.assertEqual(item.distance.meters, 1518000)
-        self.assertEqual(item.distance.miles, 943.2397)
-        self.assertEqual(str(item.duration), '1d 1h 39m 37s')
+        self.assertEqual(item.distance.kilometers, 1491)
+        self.assertEqual(item.distance.meters, 1491000)
+        self.assertEqual(item.distance.miles, 926.4627)
+        self.assertEqual(str(item.duration), '1d 1h 35m 58s')
 
     def test_distance_matrix_avoid_ferries(self):
         origins = ['rybnik']
