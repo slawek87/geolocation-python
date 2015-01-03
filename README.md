@@ -131,7 +131,7 @@ destinations = ['zagrzeb']
 
 google_maps = GoogleMaps(api_key='your_google_maps_key')
 
-items = google_maps.distance(origins, destinations).all()  # default mode parameter is const.MODE_DRIVING
+items = google_maps.distance(origins, destinations).all()  # default mode parameter is const.MODE_DRIVING.
 
 for item in items:
     print 'origin: %s' % item.origin
@@ -139,8 +139,8 @@ for item in items:
     print 'km: %s' % item.distance.kilometers
     print 'm: %s' % item.distance.meters
     print 'miles: %s' % item.distance.miles
-    print 'duration: %s' % item.duration  # it returns str
-    print 'duration datetime: %s' % item.duration.datetime  # it returns datetime
+    print 'duration: %s' % item.duration  # returns string.
+    print 'duration datetime: %s' % item.duration.datetime  # returns datetime.
     
     # you can also get items from duration, returns int() values.
     print 'duration days: %s' % item.duration.days
