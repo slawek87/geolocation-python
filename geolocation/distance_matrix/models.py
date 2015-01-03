@@ -26,6 +26,7 @@ class DistanceMatrixModel(object):
         duration = datetime.timedelta(seconds=value)
 
         model = Duration()
+        model.datetime = duration
 
         str_duration = str(duration)
 
@@ -72,6 +73,7 @@ class Duration(object):
         self.hours = int(kwargs.get('hours', 0))
         self.minutes = int(kwargs.get('minutes', 0))
         self.seconds = int(kwargs.get('seconds', 0))
+        self.datetime = (kwargs.get('datetime'), None)
 
     def __str__(self):
         return "%sd %sh %sm %ss" % (self.days, self.hours, self.minutes, self.seconds)
