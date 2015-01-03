@@ -142,7 +142,7 @@ for item in items:
     print 'duration: %s' % item.duration  # it returns str
     print 'duration datetime: %s' % item.duration.datetime  # it returns datetime
     
-    # you can also get items from duration
+    # you can also get items from duration, returns int() values.
     print 'duration days: %s' % item.duration.days
     print 'duration hours: %s' % item.duration.hours
     print 'duration minutes: %s' % item.duration.minutes
