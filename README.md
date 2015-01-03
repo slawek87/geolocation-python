@@ -7,28 +7,26 @@ Geolocation is a simple and clever application which uses google maps api.
 
 1. Geocode Module allows you to easily and quickly get information about given location.
 Geocode Module returns such information as: 
-
-* country, 
-* country short form,
-* city, 
-* route/street, 
-* street number,
-* postal code,
-* formatted address,
-* administrative areas,
-* lat, 
-* lng.
+    * country, 
+    * country short form,
+    * city, 
+    * route/street, 
+    * street number,
+    * postal code,
+    * formatted address,
+    * administrative areas,
+    * lat, 
+    * lng.
 
 2. Distance Module allows you to get information about travel distance and time for a matrix of origins and destinations.
 Distance Module returns such information as:
-
-* origin address
-* destination address
-* duration
-* distance
-    - kilometers
-    - meters
-    - miles
+    * origin address
+    * destination address
+    * duration
+    * distance
+        - kilometers
+        - meters
+        - miles
 
 Python2 or Python3?
 -------------------
