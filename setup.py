@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 from distutils.core import setup
 
-with open('README.md', 'r') as f:
-    readme = f.read()
+try:
+    with open('README.md', 'r') as f:
+        readme = f.read()
 
-with open('LICENSE.txt', 'r') as f:
-    license_ = f.read()
+    with open('LICENSE.txt', 'r') as f:
+        license_ = f.read()
+except:
+    readme = ''
+    license_ = ''
 
 setup(
     name='geolocation-python',
@@ -20,6 +24,6 @@ setup(
                 'This application allows you to easily and quickly get information about given localisation. '
                 'Application returns such information as: country, city, route/street, street number, lat and lng.',
     long_description=readme,
-    keywords=['Google Maps Api', 'Google lat', 'Google lng', 'Google Maps'],
+    keywords=['Python Google Maps Api', 'Google lat', 'Google lng', 'Python Google Maps'],
     install_requires=['setuptools', 'requests'],
 )
