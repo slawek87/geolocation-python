@@ -30,7 +30,7 @@ class DistanceMatrixModel(object):
         str_duration = str(duration)
 
         if duration.days:
-            pattern = r'(?P<days>\d+)\sdays,\s(?P<hours>\d+):(?P<minutes>\d+):(?P<seconds>\d+)$'
+            pattern = r'(?P<days>\d+)\s(days|day),\s(?P<hours>\d+):(?P<minutes>\d+):(?P<seconds>\d+)$'
             model.days = int(re.match(pattern, str_duration).group('days'))
         else:
             pattern = r'(?P<hours>\d+):(?P<minutes>\d+):(?P<seconds>\d+)$'
