@@ -60,8 +60,6 @@ class DistanceMatrixApi(BaseApi):
     def query(self, origins, destinations, mode, avoid=None):
         query_ = self.prepare_query(origins, destinations, mode, avoid)
 
-        print query_
-
         return self.send_request(query_)
 
 

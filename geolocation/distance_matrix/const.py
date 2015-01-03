@@ -1,10 +1,8 @@
 # encoding: utf-8
 
-from decimal import Decimal
-
-ONE_MILE = Decimal(0.62137)  # km units
-ONE_FEET = Decimal(3.2808)
-ONE_KILOMETER = Decimal(1000.00)  # m units
+ONE_MILE = float(0.62137)  # km units
+ONE_FEET = float(3.2808)
+ONE_KILOMETER = float(1000.00)  # m units
 
 
 UNIT_KM = 'km'

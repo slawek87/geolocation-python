@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 import datetime
-from decimal import Decimal
 import re
 
 from geolocation.distance_matrix import const
@@ -31,7 +30,7 @@ class DistanceMatrixModel(object):
         str_duration = str(duration)
 
         if duration.days:
-            pattern = r'(?P<days>\d)\sdays,\s(?P<hours>\d+):(?P<minutes>\d+):(?P<seconds>\d+)$'
+            pattern = r'(?P<days>\d+)\sdays,\s(?P<hours>\d+):(?P<minutes>\d+):(?P<seconds>\d+)$'
             model.days = int(re.match(pattern, str_duration).group('days'))
         else:
             pattern = r'(?P<hours>\d+):(?P<minutes>\d+):(?P<seconds>\d+)$'
@@ -55,14 +54,14 @@ class DistanceMatrixModel(object):
             pattern = r'(?P<value>[\d,]+)\s(?P<unit>km|m)$'
 
             unit = re.match(pattern, value).group('unit')
-            value = re.match(pattern, value).group('value').replace(',', '.')
+            value = re.match(pattern, value).group('value').replace(',', '').replace('.', ',')
 
             if unit == const.UNIT_KM:
-                model.kilometers = Decimal(value)
-                model.meters = Decimal(value)*const.ONE_KILOMETER
+                model.kilometers = float(value)
+                model.meters = float(value)*const.ONE_KILOMETER
             else:
-                model.kilometers = Decimal(value)/const.ONE_KILOMETER
-                model.meters = Decimal(value)
+                model.kilometers = float(value)/const.ONE_KILOMETER
+                model.meters = float(value)
 
         self._distance = model
 
@@ -80,12 +79,28 @@ class Duration(object):
 
 class Distance(object):
     def __init__(self, **kwargs):
-        self.meters = Decimal(kwargs.get('meters', 0))
-        self.kilometers = Decimal(kwargs.get('kilometers', 0))
+        self._meters = round(float(kwargs.get('meters', 0)), 3)
+        self._kilometers = round(float(kwargs.get('kilometers', 0)), 3)
 
     def __str__(self):
-        return "%s km" % self.kilometers
+        return "%s km" % round(self.kilometers, 3)
+
+    @property
+    def meters(self):
+        return self._meters
+
+    @meters.setter
+    def meters(self, value):
+        self._meters = round(float(value), 3)
+
+    @property
+    def kilometers(self):
+        return self._kilometers
+
+    @kilometers.setter
+    def kilometers(self, value):
+        self._kilometers = round(float(value), 3)
 
     @property
     def miles(self):
-        return round(self.kilometers*const.ONE_MILE, 4)
+        return round(float(self.kilometers*const.ONE_MILE), 4)
