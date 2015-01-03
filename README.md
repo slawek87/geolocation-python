@@ -6,6 +6,7 @@ What is Geolocation 0.2.0?
 Geolocation is a simple and clever application which uses google maps api.
 
 1. Geocode Module allows you to easily and quickly get information about given location.
+
 Geocode Module returns such information as: 
     * country, 
     * country short form,
@@ -19,6 +20,7 @@ Geocode Module returns such information as:
     * lng.
 
 2. Distance Module allows you to get information about travel distance and time for a matrix of origins and destinations.
+
 Distance Module returns such information as:
     * origin address
     * destination address
@@ -104,16 +106,19 @@ my_location = google_maps.search(lat=lat, lng=lng).first()
 
 How to use Distance Module?
 ----------------------------
-mode parameter — specifies the mode of transport to use when calculating directions. Valid values are:
-* driving (default) indicates standard driving directions using the road network.
-* walking requests walking directions via pedestrian paths & sidewalks (where available).
-* bicycling requests bicycling directions via bicycle paths & preferred streets (currently only available in the US and some Canadian cities).
+mode parameter — specifies the mode of transport to use when calculating directions. 
+
+Valid values are:
+    * driving (default) indicates standard driving directions using the road network.
+    * walking requests walking directions via pedestrian paths & sidewalks (where available).
+    * bicycling requests bicycling directions via bicycle paths & preferred streets (currently only available in the US and some Canadian cities).
 
 avoid parameter -  Directions may be calculated that adhere to certain restrictions. Restrictions are indicated by use of the avoid parameter, and an argument to that parameter indicating the restriction to avoid.
+
 The following estrictions are supported:
-* avoid=tolls
-* avoid=highways
-* avoid=ferries
+    * avoid=tolls
+    * avoid=highways
+    * avoid=ferries
     
 ```python
 # -*- coding: utf-8 -*-
