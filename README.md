@@ -16,8 +16,8 @@ Geocode Module returns such information as:
 * postal code,
 * formatted address,
 * administrative areas,
-* lat, 
-* lng.
+* lng,
+* lat.
 
 2. Distance Module allows you to get information about travel distance and time for a matrix of origins and destinations.
 
@@ -106,14 +106,14 @@ my_location = google_maps.search(lat=lat, lng=lng).first()
 
 How to use Distance Module?
 ----------------------------
-mode parameter — specifies the mode of transport to use when calculating directions. 
+Mode parameter — specifies the mode of transport to use when calculating directions. 
 
 Valid values are:
 * driving (default) indicates standard driving directions using the road network.
 * walking requests walking directions via pedestrian paths & sidewalks (where available).
 * bicycling requests bicycling directions via bicycle paths & preferred streets (currently only available in the US and some Canadian cities).
 
-avoid parameter -  Directions may be calculated that adhere to certain restrictions. Restrictions are indicated by use of the avoid parameter, and an argument to that parameter indicating the restriction to avoid.
+Avoid parameter -  Directions may be calculated that adhere to certain restrictions. Restrictions are indicated by use of the avoid parameter, and an argument to that parameter indicating the restriction to avoid.
 
 The following estrictions are supported:
 * avoid=tolls
@@ -149,7 +149,7 @@ for item in items:
     print 'duration seconds: %s' % item.duration.seconds
 ```
 
-Mode Bicycling
+Mode Bicycling:
 ```python
 items = google_maps.distance(origins, destinations, const.MODE_BICYCLING).all()
 
@@ -162,7 +162,7 @@ for item in items:
     print 'duration: %s' % item.duration
 ```
 
-Mode Walking
+Mode Walking:
 ```python
 items = google_maps.distance(origins, destinations, const.MODE_WALKING).all()
 
@@ -175,7 +175,7 @@ for item in items:
     print 'duration: %s' % item.duration
 ```
 
-Mode Highway
+Mode Highway:
 ```python
 items = google_maps.distance(origins, destinations, avoid=const.AVOID_HIGHWAYS).all()
 
@@ -188,7 +188,7 @@ for item in items:
     print 'duration: %s' % item.duration
 ```
 
-Avoid Ferries
+Avoid Ferries:
 ```python
 items = google_maps.distance(origins, destinations, avoid=const.AVOID_FERRIES).all()
 
@@ -201,7 +201,7 @@ for item in items:
     print 'duration: %s' % item.duration
 ```
 
-Avoid Tolls
+Avoid Tolls:
 ```python
 items = google_maps.distance(origins, destinations, avoid=const.AVOID_TOLLS).all()
 
