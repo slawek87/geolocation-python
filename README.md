@@ -147,7 +147,10 @@ for item in items:
     print 'duration hours: %s' % item.duration.hours
     print 'duration minutes: %s' % item.duration.minutes
     print 'duration seconds: %s' % item.duration.seconds
+```
 
+Mode Bicycling
+```python
 items = google_maps.distance(origins, destinations, const.MODE_BICYCLING).all()
 
 for item in items:
@@ -157,7 +160,10 @@ for item in items:
     print 'm: %s' % item.distance.meters
     print 'miles: %s' % item.distance.miles
     print 'duration: %s' % item.duration
+```
 
+Mode Walking
+```python
 items = google_maps.distance(origins, destinations, const.MODE_WALKING).all()
 
 for item in items:
@@ -167,7 +173,10 @@ for item in items:
     print 'm: %s' % item.distance.meters
     print 'miles: %s' % item.distance.miles
     print 'duration: %s' % item.duration
+```
 
+Mode Highway
+```python
 items = google_maps.distance(origins, destinations, avoid=const.AVOID_HIGHWAYS).all()
 
 for item in items:
@@ -177,7 +186,10 @@ for item in items:
     print 'm: %s' % item.distance.meters
     print 'miles: %s' % item.distance.miles
     print 'duration: %s' % item.duration
+```
 
+Avoid Ferries
+```python
 items = google_maps.distance(origins, destinations, avoid=const.AVOID_FERRIES).all()
 
 for item in items:
@@ -187,7 +199,10 @@ for item in items:
     print 'm: %s' % item.distance.meters
     print 'miles: %s' % item.distance.miles
     print 'duration: %s' % item.duration
+```
 
+Avoid Tolls
+```python
 items = google_maps.distance(origins, destinations, avoid=const.AVOID_TOLLS).all()
 
 for item in items:
@@ -197,7 +212,6 @@ for item in items:
     print 'm: %s' % item.distance.meters
     print 'miles: %s' % item.distance.miles
     print 'duration: %s' % item.duration
-
 ```
 
 More examples you should find [here](https://github.com/iknowledge-io/geolocation-python/tree/master/examples).
