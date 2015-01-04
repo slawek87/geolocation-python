@@ -116,7 +116,7 @@ Valid values are:
 
 Avoid parameter -  Directions may be calculated that adhere to certain restrictions. Restrictions are indicated by use of the avoid parameter, and an argument to that parameter indicating the restriction to avoid.
 
-The following estrictions are supported:
+The following restrictions are supported:
 * avoid=tolls
 * avoid=highways
 * avoid=ferries
