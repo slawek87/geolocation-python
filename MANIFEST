@@ -5,5 +5,5 @@ geolocation/__init__.py
 geolocation/api.py
 geolocation/const.py
 geolocation/google_maps.py
-geolocation/models.py
-geolocation/parsers.py
+geolocation/managers.py
+geolocation/parser.py
