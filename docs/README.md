@@ -16,8 +16,9 @@ Geocode Module returns such information as:
 * postal code,
 * formatted address,
 * administrative areas,
-* lng,
-* lat.
+* lat,
+* lng.
+
 
 2. Distance Module allows you to get information about travel distance and time for a matrix of origins and destinations.
 
