@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import abc
 
 import re
 import requests
@@ -8,6 +9,7 @@ from geolocation import const
 
 
 class BaseApi(object):
+    __metaclass__ = abc.ABCMeta
 
     log = logging.getLogger('base_api')
 
@@ -48,3 +50,8 @@ class BaseApi(object):
         self.log.warning(self.get_status_code(status))
 
         return None
+
+    @abc.abstractmethod
+    def query(self):
+        """Returns query for request."""
+        pass
