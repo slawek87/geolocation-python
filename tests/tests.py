@@ -173,7 +173,7 @@ class DistanceMatrixTest(unittest.TestCase):
         self.assertEqual(item.distance.kilometers, 1380)
         self.assertEqual(item.distance.meters, 1380000)
         self.assertEqual(item.distance.miles, 857.4906)
-        self.assertEqual(str(item.duration), '10d 9h 32m 15s')
+        self.assertEqual(str(item.duration), '10d 9h 32m 16s')
 
     def test_distance_matrix_avoid_tolls(self):
         origins = ['rybnik']
