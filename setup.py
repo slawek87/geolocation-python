@@ -14,7 +14,7 @@ except:
 setup(
     name='geolocation-python',
     version='0.2.0',
-    packages=['geolocation'],
+    packages=['geolocation', 'geolocation.distance_matrix', 'geolocation.geocode'],
     url='',
     download_url='https://github.com/slawek87/geolocation-python/',
     license=license_,
