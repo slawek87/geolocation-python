@@ -123,6 +123,19 @@ class GeolocationTest(unittest.TestCase):
 
         self.assertEqual('Mountain View', my_location.city.decode('utf-8'))
 
+    def test_administrative_area_resets(self):
+        address = "São Paulo"
+
+        my_location = self.google_maps.search(address).first()
+
+        self.assertEqual(len(my_location.administrative_area), 2)
+
+        address = "Rio de Janeiro"
+
+        my_location = self.google_maps.search(address).first()
+
+        self.assertEqual(len(my_location.administrative_area), 2)
+
 
 class DistanceMatrixTest(unittest.TestCase):
     def setUp(self):
@@ -213,3 +226,7 @@ class DistanceMatrixTest(unittest.TestCase):
         self.assertEqual(item.distance.meters, 1851000)
         self.assertEqual(item.distance.miles, 1150.1559)
         self.assertEqual(str(item.duration), '0d 17h 35m 44s')
+
+
+if __name__ == '__main__':
+    unittest.main()
