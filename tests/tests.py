@@ -125,16 +125,12 @@ class GeolocationTest(unittest.TestCase):
 
     def test_administrative_area_resets(self):
         address = "São Paulo"
+        sao_paulo = self.google_maps.search(address).first()
 
-        my_location = self.google_maps.search(address).first()
+        address = "Houston, TX"
+        houston = self.google_maps.search(address).first()
 
-        self.assertEqual(len(my_location.administrative_area), 2)
-
-        address = "Rio de Janeiro"
-
-        my_location = self.google_maps.search(address).first()
-
-        self.assertEqual(len(my_location.administrative_area), 2)
+        self.assertNotEqual(sao_paulo, houston)
 
 
 class DistanceMatrixTest(unittest.TestCase):
