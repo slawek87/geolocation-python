@@ -23,7 +23,7 @@ if __name__ == "__main__":
         print 'duration days: %s' % item.duration.days
         print 'duration hours: %s' % item.duration.hours
         print 'duration minutes: %s' % item.duration.minutes
-        print 'duration seconds: %s' % item.duration.secondas
+        print 'duration seconds: %s' % item.duration.seconds
 
     items = google_maps.distance(origins, destinations, const.MODE_BICYCLING).all()
 
