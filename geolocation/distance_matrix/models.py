@@ -52,10 +52,10 @@ class DistanceMatrixModel(object):
         model = Distance()
 
         if value:
-            pattern = r'(?P<value>[\d,]+)\s(?P<unit>km|m)$'
+            pattern = r'(?P<value>[\d,.]+)\s(?P<unit>km|m)$'
 
             unit = re.match(pattern, value).group('unit')
-            value = re.match(pattern, value).group('value').replace(',', '').replace('.', ',')
+            value = re.match(pattern, value).group('value').replace(',', '')
 
             if unit == const.UNIT_KM:
                 model.kilometers = float(value)
