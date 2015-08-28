@@ -45,6 +45,16 @@ if __name__ == "__main__":
         print('miles: %s' % item.distance.miles)
         print('duration: %s' % item.duration)
 
+    items = google_maps.distance(origins, destinations, const.MODE_TRANSIT).all()
+
+    for item in items:
+        print('origin: %s' % item.origin)
+        print('destination: %s' % item.destination)
+        print('km: %s' % item.distance.kilometers)
+        print('m: %s' % item.distance.meters)
+        print('miles: %s' % item.distance.miles)
+        print('duration: %s' % item.duration)
+
     items = google_maps.distance(origins, destinations, avoid=const.AVOID_HIGHWAYS).all()
 
     for item in items:
