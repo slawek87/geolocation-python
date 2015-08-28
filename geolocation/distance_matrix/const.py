@@ -12,11 +12,13 @@ UNIT_M = 'm'
 MODE_DRIVING = 1
 MODE_WALKING = 2
 MODE_BICYCLING = 3
+MODE_TRANSIT = 4
 
 MODES = (
     (MODE_DRIVING, 'driving'),
     (MODE_WALKING, 'walking'),
-    (MODE_BICYCLING, 'bicycling')
+    (MODE_BICYCLING, 'bicycling'),
+    (MODE_TRANSIT, 'transit')
 )
 
 
