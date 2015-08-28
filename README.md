@@ -113,6 +113,7 @@ Valid values are:
 * driving (default) indicates standard driving directions using the road network.
 * walking requests walking directions via pedestrian paths & sidewalks (where available).
 * bicycling requests bicycling directions via bicycle paths & preferred streets (currently only available in the US and some Canadian cities).
+* transit requests distance calculation via public transit routes (where available).
 
 Avoid parameter -  Directions may be calculated that adhere to certain restrictions. Restrictions are indicated by use of the avoid parameter, and an argument to that parameter indicating the restriction to avoid.
 
@@ -166,6 +167,19 @@ for item in items:
 Mode Walking:
 ```python
 items = google_maps.distance(origins, destinations, const.MODE_WALKING).all()
+
+for item in items:
+    print('origin: %s' % item.origin)
+    print('destination: %s' % item.destination)
+    print('km: %s' % item.distance.kilometers)
+    print('m: %s' % item.distance.meters)
+    print('miles: %s' % item.distance.miles)
+    print('duration: %s' % item.duration)
+```
+
+Mode Transit:
+```python
+items = google_maps.distance(origins, destinations, const.MODE_TRANSIT).all()
 
 for item in items:
     print('origin: %s' % item.origin)
