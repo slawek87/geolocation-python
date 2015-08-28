@@ -2,7 +2,6 @@
 
 
 class LocationModel(object):
-
     def __init__(self, **kwargs):
         self.city = kwargs.get('city')
         self.route = kwargs.get('route')
@@ -13,7 +12,7 @@ class LocationModel(object):
         self.lat = kwargs.get('lat')
         self.lng = kwargs.get('lng')
         self.formatted_address = kwargs.get('formatted_address')
-    	self._administrative_area = list()
+        self._administrative_area = list()
 
     def __repr__(self):
         return '<LocationModel: %s>' % self.city
