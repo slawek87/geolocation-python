@@ -4,7 +4,7 @@ from geolocation.geocode.parsers import GeocodeParser
 from geolocation.geocode.api import GeocodeApi
 
 
-class Geocode():
+class Geocode(object):
     parser = GeocodeParser()
     manager = Manager()
 
