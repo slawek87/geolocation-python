@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from decimal import Decimal
-
 import unittest
 from geolocation.google_maps import GoogleMaps
 from geolocation.distance_matrix import const
@@ -65,7 +63,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual(40.7060081, my_location.lat)
+        self.assertAlmostEqual(40.7060081, my_location.lat, 2)
 
     def test_lng(self):
         address = "New York City Wall Street 19"
@@ -74,7 +72,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual(-74.0134436, my_location.lng)
+        self.assertAlmostEqual(-74.0134436, my_location.lng, 2)
 
     def test_formatted_address(self):
         address = "New York City Wall Street 124"
@@ -136,6 +134,10 @@ class GeolocationTest(unittest.TestCase):
 class DistanceMatrixTest(unittest.TestCase):
     def setUp(self):
         self.google_maps = GoogleMaps(api_key=TEST_API_KEY)
+        self.duration_regex = r'([0-9]*)d ([0-9]*)h ([0-9]*)m ([0-9]*)s'
+        self.delta_km = 25
+        self.delta_m = 25000
+        self.delta_miles = 25
 
     def test_distance_matrix(self):
         origins = ['rybnik', 'oslo']
@@ -146,17 +148,17 @@ class DistanceMatrixTest(unittest.TestCase):
         for item in items:
             if item.origin == 'Rybnik, Poland':
                 self.assertEqual(item.destination, 'Zagreb, Croatia')
-                self.assertEqual(item.distance.kilometers, Decimal(713))
-                self.assertEqual(item.distance.meters, 713000)
-                self.assertEqual(item.distance.miles, 443.0368)
-                self.assertEqual(str(item.duration), '0d 7h 7m 47s')
+                self.assertAlmostEqual(float(709), item.distance.kilometers, delta=self.delta_km)
+                self.assertAlmostEqual(float(713000), item.distance.meters, delta=self.delta_m)
+                self.assertAlmostEqual(float(443.0368), item.distance.miles, delta=self.delta_miles)
+                self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
             if item.origin == 'Oslo, Norway':
                 self.assertEqual(item.destination, 'Zagreb, Croatia')
-                self.assertEqual(item.distance.kilometers, 2063)
-                self.assertEqual(item.distance.meters, 2063000)
-                self.assertEqual(item.distance.miles, 1281.8863)
-                self.assertEqual(str(item.duration), '0d 21h 18m 29s')
+                self.assertAlmostEqual(float(2063), item.distance.kilometers, delta=self.delta_km)
+                self.assertAlmostEqual(float(2063000), item.distance.meters, delta=self.delta_m)
+                self.assertAlmostEqual(float(1281.8863), item.distance.miles, delta=self.delta_miles)
+                self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
     def test_distance_matrix_bicycling(self):
         origins = ['rybnik']
@@ -166,10 +168,10 @@ class DistanceMatrixTest(unittest.TestCase):
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertEqual(item.distance.kilometers, 1596)
-        self.assertEqual(item.distance.meters, 1596000)
-        self.assertEqual(item.distance.miles, 991.7065)
-        self.assertEqual(str(item.duration), '3d 11h 7m 25s')
+        self.assertAlmostEqual(float(1596), item.distance.kilometers, delta=self.delta_km)
+        self.assertAlmostEqual(float(1596000), item.distance.meters, delta=self.delta_m)
+        self.assertAlmostEqual(float(991.7065), item.distance.miles, delta=self.delta_miles)
+        self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
     def test_distance_matrix_walking(self):
         origins = ['rybnik']
@@ -179,10 +181,10 @@ class DistanceMatrixTest(unittest.TestCase):
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertEqual(item.distance.kilometers, 1380)
-        self.assertEqual(item.distance.meters, 1380000)
-        self.assertEqual(item.distance.miles, 857.4906)
-        self.assertEqual(str(item.duration), '10d 9h 32m 16s')
+        self.assertAlmostEqual(float(1380), item.distance.kilometers, delta=self.delta_km)
+        self.assertAlmostEqual(float(1380000), item.distance.meters, delta=self.delta_m)
+        self.assertAlmostEqual(float(857.4906), item.distance.miles, delta=self.delta_miles)
+        self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
     def test_distance_matrix_avoid_tolls(self):
         origins = ['rybnik']
@@ -192,10 +194,10 @@ class DistanceMatrixTest(unittest.TestCase):
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertEqual(item.distance.kilometers, 1542)
-        self.assertEqual(item.distance.meters, 1542000)
-        self.assertEqual(item.distance.miles, 958.1525)
-        self.assertEqual(str(item.duration), '0d 16h 30m 40s')
+        self.assertAlmostEqual(float(1542), item.distance.kilometers, delta=self.delta_km)
+        self.assertAlmostEqual(float(1542000), item.distance.meters, delta=self.delta_m)
+        self.assertAlmostEqual(float(958.1525), item.distance.miles, delta=self.delta_miles)
+        self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
     def test_distance_matrix_avoid_highways(self):
         origins = ['rybnik']
@@ -205,10 +207,10 @@ class DistanceMatrixTest(unittest.TestCase):
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertEqual(item.distance.kilometers, 1491)
-        self.assertEqual(item.distance.meters, 1491000)
-        self.assertEqual(item.distance.miles, 926.4627)
-        self.assertEqual(str(item.duration), '1d 1h 36m 6s')
+        self.assertAlmostEqual(float(1542), item.distance.kilometers, delta=self.delta_km)
+        self.assertAlmostEqual(float(1542000), item.distance.meters, delta=self.delta_m)
+        self.assertAlmostEqual(float(958.1525), item.distance.miles, delta=self.delta_miles)
+        self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
     def test_distance_matrix_avoid_ferries(self):
         origins = ['rybnik']
@@ -218,10 +220,10 @@ class DistanceMatrixTest(unittest.TestCase):
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertEqual(item.distance.kilometers, 1851)
-        self.assertEqual(item.distance.meters, 1851000)
-        self.assertEqual(item.distance.miles, 1150.1559)
-        self.assertEqual(str(item.duration), '0d 17h 35m 44s')
+        self.assertAlmostEqual(float(1851), item.distance.kilometers, delta=self.delta_km)
+        self.assertAlmostEqual(float(1851000), item.distance.meters, delta=self.delta_m)
+        self.assertAlmostEqual(float(1150.1559), item.distance.miles, delta=self.delta_miles)
+        self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
 
 if __name__ == '__main__':

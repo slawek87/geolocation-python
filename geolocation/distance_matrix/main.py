@@ -6,7 +6,7 @@ from geolocation.distance_matrix.parser import DistanceMatrixParser
 from geolocation.managers import Manager
 
 
-class DistanceMatrix():
+class DistanceMatrix(object):
     parser = DistanceMatrixParser()
     manager = Manager()
 
