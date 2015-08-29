@@ -1,4 +1,4 @@
-What is Geolocation 0.2.0?
+What is Geolocation 0.2.1?
 =====================
 ![Alt text](https://travis-ci.org/slawek87/geolocation-python.svg?branch=master)&nbsp;&nbsp;&nbsp;[![PyPI version](https://badge.fury.io/py/geolocation-python.svg)](https://pypi.python.org/pypi/geolocation-python/0.2.0)&nbsp;&nbsp;&nbsp;
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/slawek87/geolocation-python?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -16,7 +16,8 @@ Geocode Module returns such information as:
 * postal code,
 * formatted address,
 * administrative areas,
-* lat and lng.
+* lat,
+* lng
 
 
 2. Distance Module allows you to get information about travel distance and time for a matrix of origins and destinations.
