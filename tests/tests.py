@@ -95,6 +95,10 @@ class GeolocationTest(unittest.TestCase):
             'New York',
             my_location.administrative_area[0].name.decode('utf-8'))
 
+        self.assertEqual(
+            'NY',
+            my_location.administrative_area[0].short_name.decode('utf-8'))
+
     def test_administrative_area_level_2(self):
         address = "New York City Wall Street 126"
 
@@ -105,6 +109,10 @@ class GeolocationTest(unittest.TestCase):
         self.assertEqual(
             'New York County',
             my_location.administrative_area[1].name.decode('utf-8'))
+
+        self.assertEqual(
+            'New York County',
+            my_location.administrative_area[1].short_name.decode('utf-8'))
 
     def test_coding(self):
         address = "São Paulo"
