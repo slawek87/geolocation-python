@@ -76,9 +76,10 @@ class GeocodeParser(Parser):
 
         for area_type in administrative_areas:
             name = self.search_address_components(area_type)
+            short_name = self.search_address_components(area_type, True)
 
             if name:
-                data.append(dict(name=name, area_type=area_type))
+                data.append(dict(name=name, short_name=short_name, area_type=area_type))
 
         return data
 
