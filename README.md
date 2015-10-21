@@ -86,7 +86,9 @@ print(my_location.street_number)
 print(my_location.postal_code)
 
 for administrative_area in my_location.administrative_area:
-    print("{}: {} ({})".format(administrative_area.area_type, administrative_area.name, administrative_area.short_name))
+    print("{}: {} ({})".format(administrative_area.area_type, 
+                               administrative_area.name, 
+                               administrative_area.short_name))
 
 print(my_location.country)
 print(my_location.country_shortcut)
