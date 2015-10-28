@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from geolocation.parser import Parser
+from geolocation.parsers import Parser
 
 
 class GeocodeParser(Parser):
@@ -7,7 +7,7 @@ class GeocodeParser(Parser):
         """Method searches address components in google maps json data."""
         data = None
 
-        for address_component in self.json_data.get('address_components'):
+        for address_component in self.data.get('address_components'):
             types = address_component.get('types')
 
             if type_ in types:
@@ -18,55 +18,55 @@ class GeocodeParser(Parser):
 
         return data
 
-    def search_geometry_location(self, type_):
+    def parse_geometry_location(self, location_type):
         """Method searches geometry location in google maps json data"""
-        if not self.json_data:
+        if not self.data:
             return None
 
-        geometry_location = self.json_data['geometry']['location']
+        geometry_location = self.data['geometry']['location']
 
-        return geometry_location[type_]
+        return geometry_location[location_type]
 
-    def get_formatted_address(self):
+    def parse_formatted_address(self):
         """Method should returns full address of current location."""
-        if not self.json_data:
+        if not self.data:
             return None
 
-        return self.json_data['formatted_address']
+        return self.data['formatted_address']
 
-    def get_street_number(self):
+    def parse_street_number(self):
         """Method should returns street number of current location."""
         return self.search_address_components('street_number')
 
-    def get_route(self):
+    def parse_route(self):
         """Method should returns route long name of current location."""
         return self.search_address_components('route')
 
-    def get_postal_code(self):
+    def parse_postal_code(self):
         """Method should returns postal code of current location."""
         return self.search_address_components('postal_code')
 
-    def get_city(self):
+    def parse_city(self):
         """Method should returns city long name of current location."""
         return self.search_address_components('locality')
 
-    def get_country(self):
+    def parse_country(self):
         """Method should returns country long name from current location."""
         return self.search_address_components('country')
 
-    def get_country_shortcut(self):
+    def parse_country_shortcut(self):
         """Method should returns country short name from current location."""
         return self.search_address_components('country', True)
 
-    def get_lat(self):
+    def parse_lat(self):
         """Method should returns lat property of current location."""
-        return self.search_geometry_location('lat')
+        return self.parse_geometry_location('lat')
 
-    def get_lng(self):
+    def parse_lng(self):
         """Method should returns lng property of current location."""
-        return self.search_geometry_location('lng')
+        return self.parse_geometry_location('lng')
 
-    def get_administrative_area(self):
+    def parse_administrative_area(self):
         """Method should returns all administrative areas of current location."""
         data = list()
 
@@ -85,4 +85,4 @@ class GeocodeParser(Parser):
 
     def get_results(self):
         """Method return results."""
-        return self.json_data.get('results')
+        return self.data.get('results')

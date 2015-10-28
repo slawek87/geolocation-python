@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # encoding: utf-8
+from decimal import Decimal
 
 import unittest
-from geolocation.google_maps import GoogleMaps
-from geolocation.distance_matrix import const
+from geolocation.distance_matrix.client import DistanceMatrixApiClient
+from geolocation.main import GoogleMaps
 
 
 TEST_API_KEY = 'AIzaSyDNvdrZ_HEtfsuPYHV9UvZGc41BSFBolOM'
@@ -127,7 +128,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = self.google_maps.search(lat=lat, lng=lng).first()
 
-        self.assertEqual('Mountain View', my_location.city.decode('utf-8'))
+        self.assertEqual('New York', my_location.city.decode('utf-8'))
 
     def test_administrative_area_resets(self):
         address = "São Paulo"
@@ -156,81 +157,81 @@ class DistanceMatrixTest(unittest.TestCase):
         for item in items:
             if item.origin == 'Rybnik, Poland':
                 self.assertEqual(item.destination, 'Zagreb, Croatia')
-                self.assertAlmostEqual(float(709), item.distance.kilometers, delta=self.delta_km)
-                self.assertAlmostEqual(float(713000), item.distance.meters, delta=self.delta_m)
-                self.assertAlmostEqual(float(443.0368), item.distance.miles, delta=self.delta_miles)
+                self.assertAlmostEqual(Decimal(709), item.distance.kilometers, delta=self.delta_km)
+                self.assertAlmostEqual(Decimal(713000), item.distance.meters, delta=self.delta_m)
+                self.assertAlmostEqual(Decimal(443.0368), item.distance.miles, delta=self.delta_miles)
                 self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
             if item.origin == 'Oslo, Norway':
                 self.assertEqual(item.destination, 'Zagreb, Croatia')
-                self.assertAlmostEqual(float(2063), item.distance.kilometers, delta=self.delta_km)
-                self.assertAlmostEqual(float(2063000), item.distance.meters, delta=self.delta_m)
-                self.assertAlmostEqual(float(1281.8863), item.distance.miles, delta=self.delta_miles)
+                self.assertAlmostEqual(Decimal(2063), item.distance.kilometers, delta=self.delta_km)
+                self.assertAlmostEqual(Decimal(2063000), item.distance.meters, delta=self.delta_m)
+                self.assertAlmostEqual(Decimal(1281.8863), item.distance.miles, delta=self.delta_miles)
                 self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
     def test_distance_matrix_bicycling(self):
         origins = ['rybnik']
         destinations = ['oslo']
 
-        item = self.google_maps.distance(origins, destinations, const.MODE_BICYCLING).first()
+        item = self.google_maps.distance(origins, destinations, DistanceMatrixApiClient.MODE_BICYCLING).first()
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertAlmostEqual(float(1596), item.distance.kilometers, delta=self.delta_km)
-        self.assertAlmostEqual(float(1596000), item.distance.meters, delta=self.delta_m)
-        self.assertAlmostEqual(float(991.7065), item.distance.miles, delta=self.delta_miles)
+        self.assertAlmostEqual(Decimal(1596), item.distance.kilometers, delta=self.delta_km)
+        self.assertAlmostEqual(Decimal(1596000), item.distance.meters, delta=self.delta_m)
+        self.assertAlmostEqual(Decimal(991.7065), item.distance.miles, delta=self.delta_miles)
         self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
     def test_distance_matrix_walking(self):
         origins = ['rybnik']
         destinations = ['oslo']
 
-        item = self.google_maps.distance(origins, destinations, const.MODE_WALKING).first()
+        item = self.google_maps.distance(origins, destinations, DistanceMatrixApiClient.MODE_WALKING).first()
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertAlmostEqual(float(1380), item.distance.kilometers, delta=self.delta_km)
-        self.assertAlmostEqual(float(1380000), item.distance.meters, delta=self.delta_m)
-        self.assertAlmostEqual(float(857.4906), item.distance.miles, delta=self.delta_miles)
+        self.assertAlmostEqual(Decimal(1380), item.distance.kilometers, delta=self.delta_km)
+        self.assertAlmostEqual(Decimal(1380000), item.distance.meters, delta=self.delta_m)
+        self.assertAlmostEqual(Decimal(857.4906), item.distance.miles, delta=self.delta_miles)
         self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
     def test_distance_matrix_avoid_tolls(self):
         origins = ['rybnik']
         destinations = ['oslo']
 
-        item = self.google_maps.distance(origins, destinations, avoid=const.AVOID_TOLLS).first()
+        item = self.google_maps.distance(origins, destinations, avoid=DistanceMatrixApiClient.AVOID_TOLLS).first()
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertAlmostEqual(float(1542), item.distance.kilometers, delta=self.delta_km)
-        self.assertAlmostEqual(float(1542000), item.distance.meters, delta=self.delta_m)
-        self.assertAlmostEqual(float(958.1525), item.distance.miles, delta=self.delta_miles)
+        self.assertAlmostEqual(Decimal(1542), item.distance.kilometers, delta=self.delta_km)
+        self.assertAlmostEqual(Decimal(1542000), item.distance.meters, delta=self.delta_m)
+        self.assertAlmostEqual(Decimal(958.1525), item.distance.miles, delta=self.delta_miles)
         self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
     def test_distance_matrix_avoid_highways(self):
         origins = ['rybnik']
         destinations = ['oslo']
 
-        item = self.google_maps.distance(origins, destinations, avoid=const.AVOID_HIGHWAYS).first()
+        item = self.google_maps.distance(origins, destinations, avoid=DistanceMatrixApiClient.AVOID_HIGHWAYS).first()
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertAlmostEqual(float(1542), item.distance.kilometers, delta=self.delta_km)
-        self.assertAlmostEqual(float(1542000), item.distance.meters, delta=self.delta_m)
-        self.assertAlmostEqual(float(958.1525), item.distance.miles, delta=self.delta_miles)
+        self.assertAlmostEqual(Decimal(1542), item.distance.kilometers, delta=self.delta_km)
+        self.assertAlmostEqual(Decimal(1542000), item.distance.meters, delta=self.delta_m)
+        self.assertAlmostEqual(Decimal(958.1525), item.distance.miles, delta=self.delta_miles)
         self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
     def test_distance_matrix_avoid_ferries(self):
         origins = ['rybnik']
         destinations = ['oslo']
 
-        item = self.google_maps.distance(origins, destinations, avoid=const.AVOID_FERRIES).first()
+        item = self.google_maps.distance(origins, destinations, avoid=DistanceMatrixApiClient.AVOID_FERRIES).first()
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertAlmostEqual(float(1851), item.distance.kilometers, delta=self.delta_km)
-        self.assertAlmostEqual(float(1851000), item.distance.meters, delta=self.delta_m)
-        self.assertAlmostEqual(float(1150.1559), item.distance.miles, delta=self.delta_miles)
+        self.assertAlmostEqual(Decimal(1851), item.distance.kilometers, delta=self.delta_km)
+        self.assertAlmostEqual(Decimal(1851000), item.distance.meters, delta=self.delta_m)
+        self.assertAlmostEqual(Decimal(1150.1559), item.distance.miles, delta=self.delta_miles)
         self.assertRegexpMatches(str(item.duration), self.duration_regex)
 
 

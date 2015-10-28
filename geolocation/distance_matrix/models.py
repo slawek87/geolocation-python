@@ -1,13 +1,12 @@
 # encoding: utf-8
 
 import datetime
+from decimal import Decimal
 import re
-
-from geolocation.distance_matrix import const
+from geolocation.distance_matrix.client import DistanceMatrixApiClient
 
 
 class DistanceMatrixModel(object):
-
     def __init__(self, **kwargs):
         self.origin = kwargs.get('origin')
         self.destination = kwargs.get('destination')
@@ -46,7 +45,6 @@ class DistanceMatrixModel(object):
     def distance(self):
         return self._distance
 
-
     @distance.setter
     def distance(self, value):
         model = Distance()
@@ -57,12 +55,12 @@ class DistanceMatrixModel(object):
             unit = re.match(pattern, value).group('unit')
             value = re.match(pattern, value).group('value').replace(',', '')
 
-            if unit == const.UNIT_KM:
-                model.kilometers = float(value)
-                model.meters = float(value)*const.ONE_KILOMETER
+            if unit == DistanceMatrixApiClient.UNIT_KM:
+                model.kilometers = Decimal(value)
+                model.meters = Decimal(value)*DistanceMatrixApiClient.ONE_KILOMETER
             else:
-                model.kilometers = float(value)/const.ONE_KILOMETER
-                model.meters = float(value)
+                model.kilometers = Decimal(value)/DistanceMatrixApiClient.ONE_KILOMETER
+                model.meters = Decimal(value)
 
         self._distance = model
 
@@ -81,11 +79,11 @@ class Duration(object):
 
 class Distance(object):
     def __init__(self, **kwargs):
-        self._meters = round(float(kwargs.get('meters', 0)), 3)
-        self._kilometers = round(float(kwargs.get('kilometers', 0)), 3)
+        self._meters = round(Decimal(kwargs.get('meters', 0)), 3)
+        self._kilometers = round(Decimal(kwargs.get('kilometers', 0)), 3)
 
     def __str__(self):
-        return "%s km" % round(self.kilometers, 3)
+        return "%s km" % Decimal(round(self.kilometers, 3))
 
     @property
     def meters(self):
@@ -93,7 +91,7 @@ class Distance(object):
 
     @meters.setter
     def meters(self, value):
-        self._meters = round(float(value), 3)
+        self._meters = Decimal(round(Decimal(value), 3))
 
     @property
     def kilometers(self):
@@ -101,8 +99,8 @@ class Distance(object):
 
     @kilometers.setter
     def kilometers(self, value):
-        self._kilometers = round(float(value), 3)
+        self._kilometers = Decimal(round(Decimal(value), 3))
 
     @property
     def miles(self):
-        return round(float(self.kilometers*const.ONE_MILE), 4)
+        return Decimal(round(Decimal(self.kilometers*DistanceMatrixApiClient.ONE_MILE), 4))
