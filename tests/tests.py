@@ -65,7 +65,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertAlmostEqual(40.7008854, my_location.lat, delta=0.009)
+        self.assertAlmostEqual(40.7008854, my_location.lat, delta=0.1)
 
     def test_lng(self):
         address = "New York City Wall Street 19"
@@ -74,7 +74,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertAlmostEqual(-74.0777861, my_location.lng, delta=0.09)
+        self.assertAlmostEqual(-74.0777861, my_location.lng, delta=0.1)
 
     def test_formatted_address(self):
         address = "70 Pine Street, 70 Pine St, New York, NY 10270, USA"
