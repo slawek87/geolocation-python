@@ -65,7 +65,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual(40.7060081, my_location.lat)
+        self.assertAlmostEqual(40.7008854, my_location.lat, delta=0.009)
 
     def test_lng(self):
         address = "New York City Wall Street 19"
@@ -74,7 +74,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual(-74.0134436, my_location.lng)
+        self.assertAlmostEqual(-74.0777861, my_location.lng)
 
     def test_formatted_address(self):
         address = "New York City Wall Street 124"
@@ -83,7 +83,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertEqual('Charging Bull, Broadway, New York, NY 10004, USA',
+        self.assertEqual('70 Pine Street, 70 Pine St, New York, NY 10270, USA',
                          my_location.formatted_address)
 
     def test_administrative_area_level_1(self):
@@ -137,17 +137,17 @@ class DistanceMatrixTest(unittest.TestCase):
         for item in items:
             if item.origin == 'Rybnik, Poland':
                 self.assertEqual(item.destination, 'Zagreb, Croatia')
-                self.assertEqual(item.distance.kilometers, Decimal(713))
-                self.assertEqual(item.distance.meters, 713000)
-                self.assertEqual(item.distance.miles, 443.0368)
-                self.assertEqual(str(item.duration), '0d 7h 7m 47s')
+                self.assertEqual(item.distance.kilometers, Decimal(716))
+                self.assertEqual(item.distance.meters, 716000)
+                self.assertEqual(item.distance.miles, 444.9009)
+                self.assertEqual(str(item.duration), '0d 7h 34m 54s')
 
             if item.origin == 'Oslo, Norway':
                 self.assertEqual(item.destination, 'Zagreb, Croatia')
-                self.assertEqual(item.distance.kilometers, 2063)
-                self.assertEqual(item.distance.meters, 2063000)
-                self.assertEqual(item.distance.miles, 1281.8863)
-                self.assertEqual(str(item.duration), '0d 21h 18m 29s')
+                self.assertEqual(item.distance.kilometers, 2069.0)
+                self.assertEqual(item.distance.meters, 2069000.0)
+                self.assertEqual(item.distance.miles, 1285.6145)
+                self.assertEqual(str(item.duration), '0d 21h 36m 30s')
 
     def test_distance_matrix_bicycling(self):
         origins = ['rybnik']
@@ -157,10 +157,10 @@ class DistanceMatrixTest(unittest.TestCase):
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertEqual(item.distance.kilometers, 1596)
-        self.assertEqual(item.distance.meters, 1596000)
-        self.assertEqual(item.distance.miles, 991.7065)
-        self.assertEqual(str(item.duration), '3d 11h 7m 25s')
+        self.assertEqual(item.distance.kilometers, 1595)
+        self.assertEqual(item.distance.meters, 1595000)
+        self.assertEqual(item.distance.miles, 991.0851)
+        self.assertEqual(str(item.duration), '3d 10h 59m 41s')
 
     def test_distance_matrix_walking(self):
         origins = ['rybnik']
@@ -170,10 +170,10 @@ class DistanceMatrixTest(unittest.TestCase):
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertEqual(item.distance.kilometers, 1380)
-        self.assertEqual(item.distance.meters, 1380000)
-        self.assertEqual(item.distance.miles, 857.4906)
-        self.assertEqual(str(item.duration), '10d 9h 32m 16s')
+        self.assertEqual(item.distance.kilometers, 1369)
+        self.assertEqual(item.distance.meters, 1369000)
+        self.assertEqual(item.distance.miles, 850.6555)
+        self.assertEqual(str(item.duration), '10d 12h 38m 34s')
 
     def test_distance_matrix_avoid_tolls(self):
         origins = ['rybnik']
@@ -186,7 +186,7 @@ class DistanceMatrixTest(unittest.TestCase):
         self.assertEqual(item.distance.kilometers, 1542)
         self.assertEqual(item.distance.meters, 1542000)
         self.assertEqual(item.distance.miles, 958.1525)
-        self.assertEqual(str(item.duration), '0d 16h 30m 40s')
+        self.assertEqual(str(item.duration), '0d 16h 36m 5s')
 
     def test_distance_matrix_avoid_highways(self):
         origins = ['rybnik']
@@ -196,10 +196,10 @@ class DistanceMatrixTest(unittest.TestCase):
 
         self.assertEqual(item.origin, 'Rybnik, Poland')
         self.assertEqual(item.destination, 'Oslo, Norway')
-        self.assertEqual(item.distance.kilometers, 1491)
-        self.assertEqual(item.distance.meters, 1491000)
-        self.assertEqual(item.distance.miles, 926.4627)
-        self.assertEqual(str(item.duration), '1d 1h 36m 6s')
+        self.assertEqual(item.distance.kilometers, 1532.0)
+        self.assertEqual(item.distance.meters, 1532000)
+        self.assertEqual(item.distance.miles, 951.9388)
+        self.assertEqual(str(item.duration), '1d 1h 33m 53s')
 
     def test_distance_matrix_avoid_ferries(self):
         origins = ['rybnik']
@@ -212,4 +212,4 @@ class DistanceMatrixTest(unittest.TestCase):
         self.assertEqual(item.distance.kilometers, 1851)
         self.assertEqual(item.distance.meters, 1851000)
         self.assertEqual(item.distance.miles, 1150.1559)
-        self.assertEqual(str(item.duration), '0d 17h 35m 44s')
+        self.assertEqual(str(item.duration), '0d 17h 46m 58s')
