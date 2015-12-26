@@ -64,7 +64,7 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertAlmostEqual(40.7060081, my_location.lat, 2)
+        self.assertAlmostEqual(40.7008854, my_location.lat, delta=0.01)
 
     def test_lng(self):
         address = "New York City Wall Street 19"
@@ -73,16 +73,16 @@ class GeolocationTest(unittest.TestCase):
 
         my_location = location.first()
 
-        self.assertAlmostEqual(-74.0134436, my_location.lng, 2)
+        self.assertAlmostEqual(-73.986969, my_location.lng, delta=0.1)
 
     def test_formatted_address(self):
-        address = "New York City Wall Street 124"
+        address = "New York City 70 Pine Street"
 
         location = self.google_maps.search(address)
 
         my_location = location.first()
 
-        self.assertEqual('Charging Bull, Broadway, New York, NY 10004, USA',
+        self.assertEqual('70 Pine St, New York, NY 10270, USA',
                          my_location.formatted_address)
 
     def test_administrative_area_level_1(self):
