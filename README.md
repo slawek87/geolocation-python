@@ -68,7 +68,7 @@ How to use Geocode Module?
 ```python
 # -*- coding: utf-8 -*-
 
-from geolocation.google_maps import GoogleMaps
+from geolocation.main import GoogleMaps
 
 address = "New York City Wall Street 12"
 
@@ -127,15 +127,15 @@ The following restrictions are supported:
 ```python
 # -*- coding: utf-8 -*-
 
-from geolocation.google_maps import GoogleMaps
-from geolocation.distance_matrix import const
+from geolocation.main import GoogleMaps
+from geolocation.distance_matrix.client import DistanceMatrixApiClient
 
 origins = ['rybnik', 'oslo']
 destinations = ['zagrzeb']
 
 google_maps = GoogleMaps(api_key='your_google_maps_key')
 
-items = google_maps.distance(origins, destinations).all()  # default mode parameter is const.MODE_DRIVING.
+items = google_maps.distance(origins, destinations).all()  # default mode parameter is DistanceMatrixApiClient.MODE_DRIVING.
 
 for item in items:
     print('origin: %s' % item.origin)
@@ -155,7 +155,7 @@ for item in items:
 
 Mode Bicycling:
 ```python
-items = google_maps.distance(origins, destinations, const.MODE_BICYCLING).all()
+items = google_maps.distance(origins, destinations, DistanceMatrixApiClient.MODE_BICYCLING).all()
 
 for item in items:
     print('origin: %s' % item.origin)
@@ -168,7 +168,7 @@ for item in items:
 
 Mode Walking:
 ```python
-items = google_maps.distance(origins, destinations, const.MODE_WALKING).all()
+items = google_maps.distance(origins, destinations, DistanceMatrixApiClient.MODE_WALKING).all()
 
 for item in items:
     print('origin: %s' % item.origin)
@@ -181,7 +181,7 @@ for item in items:
 
 Mode Transit:
 ```python
-items = google_maps.distance(origins, destinations, const.MODE_TRANSIT).all()
+items = google_maps.distance(origins, destinations, DistanceMatrixApiClient.MODE_TRANSIT).all()
 
 for item in items:
     print('origin: %s' % item.origin)
@@ -194,7 +194,7 @@ for item in items:
 
 Mode Highway:
 ```python
-items = google_maps.distance(origins, destinations, avoid=const.AVOID_HIGHWAYS).all()
+items = google_maps.distance(origins, destinations, avoid=DistanceMatrixApiClient.AVOID_HIGHWAYS).all()
 
 for item in items:
     print('origin: %s' % item.origin)
@@ -207,7 +207,7 @@ for item in items:
 
 Avoid Ferries:
 ```python
-items = google_maps.distance(origins, destinations, avoid=const.AVOID_FERRIES).all()
+items = google_maps.distance(origins, destinations, avoid=DistanceMatrixApiClient.AVOID_FERRIES).all()
 
 for item in items:
     print('origin: %s' % item.origin)
@@ -220,7 +220,7 @@ for item in items:
 
 Avoid Tolls:
 ```python
-items = google_maps.distance(origins, destinations, avoid=const.AVOID_TOLLS).all()
+items = google_maps.distance(origins, destinations, avoid=DistanceMatrixApiClient.AVOID_TOLLS).all()
 
 for item in items:
     print('origin: %s' % item.origin)
