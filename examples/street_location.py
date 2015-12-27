@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from geolocation.google_maps import GoogleMaps
+from geolocation.main import GoogleMaps
 
 if __name__ == "__main__":
     address = "Wall Street 12"

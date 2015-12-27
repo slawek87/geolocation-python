@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from geolocation.google_maps import GoogleMaps
-from geolocation.distance_matrix import const
+from geolocation.main import GoogleMaps
+from geolocation.distance_matrix.client import DistanceMatrixApiClient
 
 if __name__ == "__main__":
     origins = ['rybnik', 'oslo']
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         print('duration minutes: %s' % item.duration.minutes)
         print('duration seconds: %s' % item.duration.seconds)
 
-    items = google_maps.distance(origins, destinations, const.MODE_BICYCLING).all()
+    items = google_maps.distance(origins, destinations, DistanceMatrixApiClient.MODE_BICYCLING).all()
 
     for item in items:
         print('origin: %s' % item.origin)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
         print('miles: %s' % item.distance.miles)
         print('duration: %s' % item.duration)
 
-    items = google_maps.distance(origins, destinations, const.MODE_WALKING).all()
+    items = google_maps.distance(origins, destinations, DistanceMatrixApiClient.MODE_WALKING).all()
 
     for item in items:
         print('origin: %s' % item.origin)
@@ -45,7 +45,7 @@ if __name__ == "__main__":
         print('miles: %s' % item.distance.miles)
         print('duration: %s' % item.duration)
 
-    items = google_maps.distance(origins, destinations, const.MODE_TRANSIT).all()
+    items = google_maps.distance(origins, destinations, DistanceMatrixApiClient.MODE_TRANSIT).all()
 
     for item in items:
         print('origin: %s' % item.origin)
@@ -55,7 +55,7 @@ if __name__ == "__main__":
         print('miles: %s' % item.distance.miles)
         print('duration: %s' % item.duration)
 
-    items = google_maps.distance(origins, destinations, avoid=const.AVOID_HIGHWAYS).all()
+    items = google_maps.distance(origins, destinations, avoid=DistanceMatrixApiClient.AVOID_HIGHWAYS).all()
 
     for item in items:
         print('origin: %s' % item.origin)
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         print('miles: %s' % item.distance.miles)
         print('duration: %s' % item.duration)
 
-    items = google_maps.distance(origins, destinations, avoid=const.AVOID_FERRIES).all()
+    items = google_maps.distance(origins, destinations, avoid=DistanceMatrixApiClient.AVOID_FERRIES).all()
 
     for item in items:
         print('origin: %s' % item.origin)
@@ -75,7 +75,7 @@ if __name__ == "__main__":
         print('miles: %s' % item.distance.miles)
         print('duration: %s' % item.duration)
 
-    items = google_maps.distance(origins, destinations, avoid=const.AVOID_TOLLS).all()
+    items = google_maps.distance(origins, destinations, avoid=DistanceMatrixApiClient.AVOID_TOLLS).all()
 
     for item in items:
         print('origin: %s' % item.origin)
