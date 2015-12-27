@@ -1,157 +1,132 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Geolocation-python by Sławek Kabik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-</head>
-<body>
-<div class="wrapper">
+
+    <title>Geolocation-python by slawek87</title>
+  </head>
+
+  <body>
     <header>
+      <div class="inner">
         <h1>Geolocation-python</h1>
-
-        <p>Geolocation is a simple and clever application which uses google maps api. This application allows you to
-            easily and quickly get information about given location Application returns such information as: country,
-            city, route/street, street number, lat and lng, travel distance and time for a matrix of origins and
-            destinations.</p>
-
-        <p class="view"><a href="https://github.com/slawek87/geolocation-python">View the Project on GitHub
-            <small>slawek87/geolocation-python</small>
-        </a></p>
-
-
-        <ul>
-            <li><a href="https://github.com/slawek87/geolocation-python/zipball/master">Download <strong>ZIP
-                File</strong></a></li>
-            <li><a href="https://github.com/slawek87/geolocation-python/tarball/master">Download <strong>TAR
-                Ball</strong></a></li>
-            <li><a href="https://github.com/slawek87/geolocation-python">View On <strong>GitHub</strong></a></li>
-        </ul>
+        <h2>Geolocation is a simple and clever application which uses google maps api. This application allows you to easily and quickly get information about given location Application returns such information as: country, city, route/street, street number, lat and lng, travel distance and time for a matrix of origins and destinations.</h2>
+        <a href="https://github.com/slawek87/geolocation-python" class="button"><small>View project on</small> GitHub</a>
+      </div>
     </header>
-    <section>
-        <h1>
-            <a id="what-is-geolocation-021" class="anchor" href="#what-is-geolocation-021" aria-hidden="true"><span
-                    class="octicon octicon-link"></span></a>What is Geolocation 0.2.1?</h1>
 
-        <p><img src="https://travis-ci.org/slawek87/geolocation-python.svg?branch=master" alt="Alt text">   <a
-                href="https://pypi.python.org/pypi/geolocation-python/0.2.1"><img
-                src="https://badge.fury.io/py/geolocation-python.svg" alt="PyPI version"></a>   
-            <a href="https://gitter.im/slawek87/geolocation-python?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img
-                    src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a></p>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="what-is-geolocation-022" class="anchor" href="#what-is-geolocation-022" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Geolocation 0.2.2?</h1>
 
-        <p>Geolocation is a simple and clever application which uses google maps api.</p>
+<p><img src="https://travis-ci.org/slawek87/geolocation-python.svg?branch=master" alt="Alt text">   <a href="https://pypi.python.org/pypi/geolocation-python/0.2.0"><img src="https://badge.fury.io/py/geolocation-python.svg" alt="PyPI version"></a>   
+<a href="https://gitter.im/slawek87/geolocation-python?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a></p>
 
-        <p>Geocode Module allows you to easily and quickly get information about given location.</p>
+<p>Geolocation is a simple and clever application which uses google maps api.</p>
 
-        <p>Geocode Module returns such information as: </p>
+<ol>
+<li>Geocode Module allows you to easily and quickly get information about given location.</li>
+</ol>
 
-        <ul>
-            <li>country,</li>
-            <li>country short form,</li>
-            <li>city,</li>
-            <li>route/street,</li>
-            <li>street number,</li>
-            <li>postal code,</li>
-            <li>formatted address,</li>
-            <li>administrative areas,</li>
-            <li>lat,</li>
-            <li><p>lng.</p></li>
-        </ul>
+<p>Geocode Module returns such information as: </p>
 
-        <p>Distance Module allows you to get information about travel distance and time for a matrix of origins and destinations.</p>
+<ul>
+<li>country, </li>
+<li>country short form,</li>
+<li>city, </li>
+<li>route/street, </li>
+<li>street number,</li>
+<li>postal code,</li>
+<li>formatted address,</li>
+<li>administrative areas,</li>
+<li>lat,</li>
+<li><p>lng</p></li>
+</ul>
 
+<ol>
+<li>Distance Module allows you to get information about travel distance and time for a matrix of origins and destinations.</li>
+</ol>
 
-        <p>Distance Module returns such information as:</p>
+<p>Distance Module returns such information as:</p>
 
-        <ul>
-            <li>origin address</li>
-            <li>destination address</li>
-            <li>duration</li>
-            <li>distance
+<ul>
+<li>origin address</li>
+<li>destination address</li>
+<li>duration</li>
+<li>distance
 
-                <ul>
-                    <li>kilometers</li>
-                    <li>meters</li>
-                    <li>miles</li>
-                </ul>
-            </li>
-        </ul>
+<ul>
+<li>kilometers</li>
+<li>meters</li>
+<li>miles</li>
+</ul>
+</li>
+</ul>
 
-        <h2>
-            <a id="python2-or-python3" class="anchor" href="#python2-or-python3" aria-hidden="true"><span
-                    class="octicon octicon-link"></span></a>Python2 or Python3?</h2>
+<h2>
+<a id="python2-or-python3" class="anchor" href="#python2-or-python3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Python2 or Python3?</h2>
 
-        <p>Both!. Currently it supports python 2.7, 3.3 and 3.4.</p>
+<p>Both!. Currently it supports python 2.7, 3.3 and 3.4.</p>
 
-        <h2>
-            <a id="what-do-you-need" class="anchor" href="#what-do-you-need" aria-hidden="true"><span
-                    class="octicon octicon-link"></span></a>What do You need?</h2>
+<h2>
+<a id="what-do-you-need" class="anchor" href="#what-do-you-need" aria-hidden="true"><span class="octicon octicon-link"></span></a>What do You need?</h2>
 
-        <p>To use this application you need to have Google API key.
-            <a href="https://developers.google.com/maps/documentation/geocoding/">Google Maps Documentation</a> --
-            Geocoding</p>
+<p>To use this application you need to have Google API key.
+    <a href="https://developers.google.com/maps/documentation/geocoding/">Google Maps Documentation</a> -- Geocoding</p>
 
-        <ol>
-            <li>
-                <p>Open <a href="https://code.google.com/apis/console">APIs console</a>.</p>
+<ol>
+<li>
+<p>Open <a href="https://code.google.com/apis/console">APIs console</a>.</p>
 
-                <p>
-                    <img src="https://github.com/slawek87/geolocation-python/blob/geolocation-0.2.0/docs/images/geocode-1.png?raw=true"
-                         alt="Alt text" title="APIs console"></p>
-            </li>
-            <li>
-                <p>Turn On Geocode API.</p>
+<p><img src="https://github.com/iknowledge-io/geolocation-python/blob/geolocation-0.2.0/docs/images/geocode-1.png?raw=true" alt="Alt text" title="APIs console"></p>
+</li>
+<li>
+<p>Turn On Geocode API.</p>
 
-                <p>
-                    <img src="https://github.com/slawek87/geolocation-python/blob/geolocation-0.2.0/docs/images/geocode-2.png?raw=true"
-                         alt="Alt text" title="Geocode Api"></p>
-            </li>
-            <li>
-                <p>Turn On Distance Matrix API.</p>
+<p><img src="https://github.com/iknowledge-io/geolocation-python/blob/geolocation-0.2.0/docs/images/geocode-2.png?raw=true" alt="Alt text" title="Geocode Api"></p>
+</li>
+<li>
+<p>Turn On Distance Matrix API.</p>
 
-                <p>
-                    <img src="https://github.com/slawek87/geolocation-python/blob/geolocation-0.2.0/docs/images/distance-1.png?raw=true"
-                         alt="Alt text" title="Distance Matrix Api"></p>
-            </li>
-            <li>
-                <p>Get your API Key.</p>
+<p><img src="https://github.com/iknowledge-io/geolocation-python/blob/geolocation-0.2.0/docs/images/distance-1.png?raw=true" alt="Alt text" title="Distance Matrix Api"></p>
+</li>
+<li>
+<p>Get your API Key.</p>
 
-                <p>
-                    <img src="https://github.com/slawek87/geolocation-python/blob/geolocation-0.2.0/docs/images/geocode-3.png?raw=true"
-                         alt="Alt text" title="API KEY"></p>
-            </li>
-        </ol>
+<p><img src="https://github.com/iknowledge-io/geolocation-python/blob/geolocation-0.2.0/docs/images/geocode-3.png?raw=true" alt="Alt text" title="API KEY"></p>
+</li>
+</ol>
 
-        <h2>
-            <a id="how-to-install-it" class="anchor" href="#how-to-install-it" aria-hidden="true"><span
-                    class="octicon octicon-link"></span></a>How to install it?</h2>
+<h2>
+<a id="how-to-install-it" class="anchor" href="#how-to-install-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to install it?</h2>
 
 <pre><code>pip install geolocation-python
 </code></pre>
 
-        <h2>
-            <a id="how-to-use-geocode-module" class="anchor" href="#how-to-use-geocode-module" aria-hidden="true"><span
-                    class="octicon octicon-link"></span></a>How to use Geocode Module?</h2>
+<h2>
+<a id="how-to-use-geocode-module" class="anchor" href="#how-to-use-geocode-module" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use Geocode Module?</h2>
 
-        <div class="highlight highlight-python"><pre><span class="pl-c"># -*- coding: utf-8 -*-</span>
+<div class="highlight highlight-source-python"><pre><span class="pl-c"># -*- coding: utf-8 -*-</span>
 
-<span class="pl-k">from</span> geolocation.google_maps <span class="pl-k">import</span> GoogleMaps
+<span class="pl-k">from</span> geolocation.main <span class="pl-k">import</span> GoogleMaps
 
-address <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>New York City Wall Street 12<span
-                    class="pl-pds">"</span></span>
+address <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>New York City Wall Street 12<span class="pl-pds">"</span></span>
 
-google_maps <span class="pl-k">=</span> GoogleMaps(<span class="pl-vpf">api_key</span><span class="pl-k">=</span><span
-                    class="pl-s1"><span class="pl-pds">'</span>your_google_maps_key<span class="pl-pds">'</span></span>)
+google_maps <span class="pl-k">=</span> GoogleMaps(<span class="pl-smi">api_key</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>your_google_maps_key<span class="pl-pds">'</span></span>) 
 
-location <span class="pl-k">=</span> google_maps.search(<span class="pl-vpf">location</span><span class="pl-k">=</span>address) <span
-                    class="pl-c"># sends search to Google Maps.</span>
+location <span class="pl-k">=</span> google_maps.search(<span class="pl-smi">location</span><span class="pl-k">=</span>address) <span class="pl-c"># sends search to Google Maps.</span>
 
 <span class="pl-k">print</span>(location.all()) <span class="pl-c"># returns all locations.</span>
 
@@ -163,8 +138,9 @@ my_location <span class="pl-k">=</span> location.first() <span class="pl-c"># re
 <span class="pl-k">print</span>(my_location.postal_code)
 
 <span class="pl-k">for</span> administrative_area <span class="pl-k">in</span> my_location.administrative_area:
-    <span class="pl-k">print</span>(<span class="pl-s1"><span class="pl-pds">"</span><span
-                    class="pl-c1">{}</span>: <span class="pl-c1">{}</span><span class="pl-pds">"</span></span>.format(administrative_area.area_type, administrative_area.name))
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">{}</span>: <span class="pl-c1">{}</span> (<span class="pl-c1">{}</span>)<span class="pl-pds">"</span></span>.format(administrative_area.area_type, 
+                               administrative_area.name, 
+                               administrative_area.short_name))
 
 <span class="pl-k">print</span>(my_location.country)
 <span class="pl-k">print</span>(my_location.country_shortcut)
@@ -179,209 +155,152 @@ my_location <span class="pl-k">=</span> location.first() <span class="pl-c"># re
 lat <span class="pl-k">=</span> <span class="pl-c1">40.7060008</span>
 lng <span class="pl-k">=</span> <span class="pl-k">-</span><span class="pl-c1">74.0088189</span>
 
-my_location <span class="pl-k">=</span> google_maps.search(<span class="pl-vpf">lat</span><span class="pl-k">=</span>lat, <span
-                    class="pl-vpf">lng</span><span class="pl-k">=</span>lng).first()
-</pre>
-        </div>
+my_location <span class="pl-k">=</span> google_maps.search(<span class="pl-smi">lat</span><span class="pl-k">=</span>lat, <span class="pl-smi">lng</span><span class="pl-k">=</span>lng).first()
+</pre></div>
 
-        <h2>
-            <a id="how-to-use-distance-module" class="anchor" href="#how-to-use-distance-module"
-               aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use Distance Module?</h2>
+<h2>
+<a id="how-to-use-distance-module" class="anchor" href="#how-to-use-distance-module" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use Distance Module?</h2>
 
-        <p>Mode parameter — specifies the mode of transport to use when calculating directions. </p>
+<p>Mode parameter — specifies the mode of transport to use when calculating directions. </p>
 
-        <p>Valid values are:</p>
+<p>Valid values are:</p>
 
-        <ul>
-            <li>driving (default) indicates standard driving directions using the road network.</li>
-            <li>walking requests walking directions via pedestrian paths &amp; sidewalks (where available).</li>
-            <li>bicycling requests bicycling directions via bicycle paths &amp; preferred streets (currently only
-                available in the US and some Canadian cities).
-            </li>
-        </ul>
+<ul>
+<li>driving (default) indicates standard driving directions using the road network.</li>
+<li>walking requests walking directions via pedestrian paths &amp; sidewalks (where available).</li>
+<li>bicycling requests bicycling directions via bicycle paths &amp; preferred streets (currently only available in the US and some Canadian cities).</li>
+<li>transit requests distance calculation via public transit routes (where available).</li>
+</ul>
 
-        <p>Avoid parameter - Directions may be calculated that adhere to certain restrictions. Restrictions are
-            indicated by use of the avoid parameter, and an argument to that parameter indicating the restriction to
-            avoid.</p>
+<p>Avoid parameter -  Directions may be calculated that adhere to certain restrictions. Restrictions are indicated by use of the avoid parameter, and an argument to that parameter indicating the restriction to avoid.</p>
 
-        <p>The following restrictions are supported:</p>
+<p>The following restrictions are supported:</p>
 
-        <ul>
-            <li>avoid=tolls</li>
-            <li>avoid=highways</li>
-            <li>avoid=ferries</li>
-        </ul>
+<ul>
+<li>avoid=tolls</li>
+<li>avoid=highways</li>
+<li>avoid=ferries</li>
+</ul>
 
-        <div class="highlight highlight-python"><pre><span class="pl-c"># -*- coding: utf-8 -*-</span>
+<div class="highlight highlight-source-python"><pre><span class="pl-c"># -*- coding: utf-8 -*-</span>
 
-<span class="pl-k">from</span> geolocation.google_maps <span class="pl-k">import</span> GoogleMaps
-<span class="pl-k">from</span> geolocation.distance_matrix <span class="pl-k">import</span> const
+<span class="pl-k">from</span> geolocation.main <span class="pl-k">import</span> GoogleMaps
+<span class="pl-k">from</span> geolocation.distance_matrix.client <span class="pl-k">import</span> DistanceMatrixApiClient
 
-origins <span class="pl-k">=</span> [<span class="pl-s1"><span class="pl-pds">'</span>rybnik<span
-                    class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>oslo<span
-                    class="pl-pds">'</span></span>]
-destinations <span class="pl-k">=</span> [<span class="pl-s1"><span class="pl-pds">'</span>zagrzeb<span
-                    class="pl-pds">'</span></span>]
+origins <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>rybnik<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>oslo<span class="pl-pds">'</span></span>]
+destinations <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>zagrzeb<span class="pl-pds">'</span></span>]
 
-google_maps <span class="pl-k">=</span> GoogleMaps(<span class="pl-vpf">api_key</span><span class="pl-k">=</span><span
-                    class="pl-s1"><span class="pl-pds">'</span>your_google_maps_key<span class="pl-pds">'</span></span>)
+google_maps <span class="pl-k">=</span> GoogleMaps(<span class="pl-smi">api_key</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>your_google_maps_key<span class="pl-pds">'</span></span>)
 
-items <span class="pl-k">=</span> google_maps.distance(origins, destinations).all()  <span class="pl-c"># default mode parameter is const.MODE_DRIVING.</span>
+items <span class="pl-k">=</span> google_maps.distance(origins, destinations).all()  <span class="pl-c"># default mode parameter is DistanceMatrixApiClient.MODE_DRIVING.</span>
 
 <span class="pl-k">for</span> item <span class="pl-k">in</span> items:
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>origin: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>destination: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>km: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>m: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>miles: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>duration: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration  <span
-                    class="pl-c"># returns string.</span>
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>duration datetime: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration.datetime  <span
-                    class="pl-c"># returns datetime.</span>
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>origin: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>destination: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>km: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>m: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>miles: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration)  <span class="pl-c"># returns string.</span>
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration datetime: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration.datetime)  <span class="pl-c"># returns datetime.</span>
 
     <span class="pl-c"># you can also get items from duration, returns int() values.</span>
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>duration days: <span class="pl-c1">%s</span><span
-                    class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration.days
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>duration hours: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration.hours
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>duration minutes: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration.minutes
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>duration seconds: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration.seconds</pre>
-        </div>
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration days: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration.days)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration hours: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration.hours)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration minutes: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration.minutes)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration seconds: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration.seconds)</pre></div>
 
-        <p>Mode Bicycling:</p>
+<p>Mode Bicycling:</p>
 
-        <div class="highlight highlight-python"><pre>items <span class="pl-k">=</span> google_maps.distance(origins, destinations, const.MODE_BICYCLING).all()
+<div class="highlight highlight-source-python"><pre>items <span class="pl-k">=</span> google_maps.distance(origins, destinations, DistanceMatrixApiClient.MODE_BICYCLING).all()
 
 <span class="pl-k">for</span> item <span class="pl-k">in</span> items:
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>origin: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>destination: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>km: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>m: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>miles: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>duration: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration</pre>
-        </div>
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>origin: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>destination: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>km: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>m: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>miles: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration)</pre></div>
 
-        <p>Mode Walking:</p>
+<p>Mode Walking:</p>
 
-        <div class="highlight highlight-python"><pre>items <span class="pl-k">=</span> google_maps.distance(origins, destinations, const.MODE_WALKING).all()
+<div class="highlight highlight-source-python"><pre>items <span class="pl-k">=</span> google_maps.distance(origins, destinations, DistanceMatrixApiClient.MODE_WALKING).all()
 
 <span class="pl-k">for</span> item <span class="pl-k">in</span> items:
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>origin: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>destination: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>km: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>m: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>miles: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>duration: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration</pre>
-        </div>
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>origin: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>destination: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>km: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>m: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>miles: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration)</pre></div>
 
-        <p>Mode Highway:</p>
+<p>Mode Transit:</p>
 
-        <div class="highlight highlight-python"><pre>items <span class="pl-k">=</span> google_maps.distance(origins, destinations, <span
-                class="pl-vpf">avoid</span><span class="pl-k">=</span>const.AVOID_HIGHWAYS).all()
+<div class="highlight highlight-source-python"><pre>items <span class="pl-k">=</span> google_maps.distance(origins, destinations, DistanceMatrixApiClient.MODE_TRANSIT).all()
 
 <span class="pl-k">for</span> item <span class="pl-k">in</span> items:
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>origin: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>destination: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>km: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>m: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>miles: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>duration: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration</pre>
-        </div>
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>origin: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>destination: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>km: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>m: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>miles: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration)</pre></div>
 
-        <p>Avoid Ferries:</p>
+<p>Mode Highway:</p>
 
-        <div class="highlight highlight-python"><pre>items <span class="pl-k">=</span> google_maps.distance(origins, destinations, <span
-                class="pl-vpf">avoid</span><span class="pl-k">=</span>const.AVOID_FERRIES).all()
+<div class="highlight highlight-source-python"><pre>items <span class="pl-k">=</span> google_maps.distance(origins, destinations, <span class="pl-smi">avoid</span><span class="pl-k">=</span>DistanceMatrixApiClient.AVOID_HIGHWAYS).all()
 
 <span class="pl-k">for</span> item <span class="pl-k">in</span> items:
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>origin: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>destination: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>km: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>m: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>miles: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>duration: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration</pre>
-        </div>
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>origin: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>destination: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>km: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>m: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>miles: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration)</pre></div>
 
-        <p>Avoid Tolls:</p>
+<p>Avoid Ferries:</p>
 
-        <div class="highlight highlight-python"><pre>items <span class="pl-k">=</span> google_maps.distance(origins, destinations, <span
-                class="pl-vpf">avoid</span><span class="pl-k">=</span>const.AVOID_TOLLS).all()
+<div class="highlight highlight-source-python"><pre>items <span class="pl-k">=</span> google_maps.distance(origins, destinations, <span class="pl-smi">avoid</span><span class="pl-k">=</span>DistanceMatrixApiClient.AVOID_FERRIES).all()
 
 <span class="pl-k">for</span> item <span class="pl-k">in</span> items:
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>origin: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>destination: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>km: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>m: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>miles: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles
-    <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>duration: <span
-                    class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration</pre>
-        </div>
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>origin: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>destination: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>km: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>m: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>miles: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration)</pre></div>
 
-        <p>More examples you should find <a
-                href="https://github.com/slawek87/geolocation-python/tree/master/examples">here</a>.</p>
-    </section>
-    <footer>
-        <p>
-            <small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a>
-            </small>
-        </p>
-    </footer>
-</div>
-<script src="javascripts/scale.fix.js"></script>
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+<p>Avoid Tolls:</p>
 
-    ga('create', 'UA-58044787-1', 'auto');
-    ga('send', 'pageview');
+<div class="highlight highlight-source-python"><pre>items <span class="pl-k">=</span> google_maps.distance(origins, destinations, <span class="pl-smi">avoid</span><span class="pl-k">=</span>DistanceMatrixApiClient.AVOID_TOLLS).all()
 
-</script>
-</body>
+<span class="pl-k">for</span> item <span class="pl-k">in</span> items:
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>origin: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.origin)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>destination: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.destination)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>km: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.kilometers)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>m: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.meters)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>miles: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.distance.miles)
+    <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>duration: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> item.duration)</pre></div>
+
+<p>More examples you should find <a href="https://github.com/iknowledge-io/geolocation-python/tree/master/examples">here</a>.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/slawek87/geolocation-python/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/slawek87/geolocation-python/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/slawek87/geolocation-python"></a> is maintained by <a href="https://github.com/slawek87">slawek87</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
 </html>
